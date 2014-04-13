@@ -1,0 +1,14 @@
+zh-CN:
+  simple_captcha:
+    label: 验证码
+    placeholder: ''
+    message:
+      user: 验证码输入错误
+
+  errors:
+    messages:
+      carrierwave_processing_error: "不能调整图像"
+      carrierwave_integrity_error: "不是图片"
+      carrierwave_download_error: "不能下载图片"
+      extension_white_list_error: "您不能上传 %{extension} 文件, 允许这些类型: %{allowed_types}"
+      extension_black_list_error: "您不能上传  %{extension} 文件, 这些类型被禁止: %{prohibited_types}"
