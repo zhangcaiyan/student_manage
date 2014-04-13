@@ -1,0 +1,23 @@
+defaults: &defaults
+  user:
+    user0:
+      username: zhangcaiyan
+      password: zhangcaiyan
+      password_confirmation: zhangcaiyan
+
+    admin:
+      username: admin
+      password: admin
+      password_confirmation: admin
+      category: :super_admin
+
+
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

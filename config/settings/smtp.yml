@@ -1,0 +1,23 @@
+defaults: &defaults
+  config:
+    address: smtp.163.com
+    port: 25,
+    user_name: pingyoupingzhu@163.com
+    password: pypz123456
+    authentication: :login
+    domain: 163.com
+
+
+
+development:
+  <<: *defaults
+  host:
+    host: www.49393.dev:3000
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  host:
+    host: www.49393.com
