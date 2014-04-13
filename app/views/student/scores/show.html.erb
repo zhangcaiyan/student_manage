@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>成绩分类:</strong>
+  <%= @student_score.category.name %>
+</p>
+
+<p>
+  <strong>学期:</strong>
+  <%= @student_score.xueqi.name %>
+</p>
+
+<p>
+  <strong>科目:</strong>
+  <%= @student_score.subject.name %>
+</p>
+
+<p>
+  <strong>成绩:</strong>
+  <%= @student_score.score.name %>
+</p>
+
+
+
+<%= link_to '编辑', edit_student_score_path(@student_score) %> |

@@ -4,7 +4,7 @@ class Admin::NewsController < Admin::BaseController
   # GET /admin/news
   # GET /admin/news.json
   def index
-    @admin_news = News.all
+    @admin_news = News.page(params[:page]).per_page(20)
   end
 
   # GET /admin/news/1

@@ -9,6 +9,7 @@ zh-CN:
     models:
       user: 用户
       news: 公告
+      score: 成绩
 
     attributes:
       user:
@@ -34,6 +35,13 @@ zh-CN:
       news:
         title: 标题
         content: 内容
+
+      score:
+        category_id: 成绩分类
+        xueqi_id: 学期
+        subject_id: 科目
+        score_id: 成绩
+        user_id: 所属学生
 
 
     symbolizes:
