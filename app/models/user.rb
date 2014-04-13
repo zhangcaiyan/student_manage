@@ -9,5 +9,7 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
   validates :password, confirmation: true, length: {minimum: 6}
 
+  symbolize :category, in: [:student, :admin, :xuegongchu], scopes: :shallow, methods: true
 
+  default_value_for :category, :student
 end

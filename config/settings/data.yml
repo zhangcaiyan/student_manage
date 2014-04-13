@@ -1,15 +1,22 @@
 defaults: &defaults
   user:
     user0:
-      username: zhangcaiyan
-      password: zhangcaiyan
-      password_confirmation: zhangcaiyan
+      username: wushanshan
+      password: wushanshan
+      password_confirmation: wushanshan
+      category: student
+
+    user1:
+      username: xuegongchu
+      password: xuegongchu
+      password_confirmation: xuegongchu
+      category: xuegongchu
 
     admin:
       username: admin
       password: admin
       password_confirmation: admin
-      category: :super_admin
+      category: :admin
 
 
 

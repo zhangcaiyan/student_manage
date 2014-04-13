@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+$data.user.keys.each do |key|
+  user = $data.user.send(key)
+  if !User.exists?(username: user.username )
+    user=User.new(user)
+    user.save(validate: false)
+  end
+end
