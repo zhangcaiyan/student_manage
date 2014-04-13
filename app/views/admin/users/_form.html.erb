@@ -1,0 +1,7 @@
+<%= simple_form_for([:admin, @user]) do |f| %>
+  <%= f.input :username, required: true, autofocus: true %>
+  <%= f.input :password, required: true %>
+  <%= f.input :password_confirmation, required: true %>
+  <%= f.input :category, collection: User.get_category_values, required: true %>
+  <%= f.button :submit, "添加" %>
+<% end %>
