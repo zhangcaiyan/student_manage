@@ -1,0 +1,27 @@
+<h1>公告管理</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>标题</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_news.each do |admin_news| %>
+      <tr>
+        <td><%= truncate(admin_news.title, length: 30) %></td>
+        <td><%= link_to '浏览', admin_news_path(admin_news) %></td>
+        <td><%= link_to '编辑', edit_admin_news_path(admin_news) %></td>
+        <td><%= link_to '删除', admin_news_path(admin_news), method: :delete, data: { confirm: '确认删除吗?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '公告添加', new_admin_news_path %>

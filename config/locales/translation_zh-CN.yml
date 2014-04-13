@@ -8,6 +8,7 @@ zh-CN:
   activerecord:
     models:
       user: 用户
+      news: 公告
 
     attributes:
       user:
@@ -29,6 +30,10 @@ zh-CN:
         current_password: 当前密码
         remember_me: 记住密码
         category: 用户类型
+
+      news:
+        title: 标题
+        content: 内容
 
 
     symbolizes:
