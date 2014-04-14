@@ -8,6 +8,18 @@ module Dict
 
   end
 
+  class Political < Dict::Base
+
+    self.data = [
+      {id: 1, name: "团员"},
+      {id: 2, name: "中共党员"},
+      {id: 3, name: "民主党派"},
+      {id: 4, name: "无党派人士"},
+      {id: 5, name: "群众"},
+      {id: 6, name: "保密"}
+    ]
+  end
+
 
   class ScoreCategory < Dict::Base
 
@@ -17,6 +29,13 @@ module Dict
     ]
 
     has_many :xueqis, class_name: "Dict::Xueqi"
+  end
+
+  class Gender < Dict::Base
+    self.data = [
+      {id: 1, name: "先生"},
+      {id: 2, name: "女士"}
+    ]
   end
 
   class Xueqi < Dict::Base

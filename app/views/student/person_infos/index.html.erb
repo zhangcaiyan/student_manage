@@ -1,0 +1,45 @@
+<h1>Listing person_infos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Xuehao</th>
+      <th>Zhuanye</th>
+      <th>Zhiwu</th>
+      <th>Minzu</th>
+      <th>Political</th>
+      <th>Score</th>
+      <th>User</th>
+      <th>State</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @person_infos.each do |person_info| %>
+      <tr>
+        <td><%= person_info.name %></td>
+        <td><%= person_info.gender_id %></td>
+        <td><%= person_info.xuehao %></td>
+        <td><%= person_info.zhuanye %></td>
+        <td><%= person_info.zhiwu %></td>
+        <td><%= person_info.minzu %></td>
+        <td><%= person_info.political.try(:name) %></td>
+        <td><%= person_info.score_id %></td>
+        <td><%= person_info.user_id %></td>
+        <td><%= person_info.state %></td>
+        <td><%= link_to 'Show', person_info %></td>
+        <td><%= link_to 'Edit', edit_person_info_path(person_info) %></td>
+        <td><%= link_to 'Destroy', person_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Person info', new_person_info_path %>

@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @person_info.name %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @person_info.gender_id %>
+</p>
+
+<p>
+  <strong>Xuehao:</strong>
+  <%= @person_info.xuehao %>
+</p>
+
+<p>
+  <strong>Zhuanye:</strong>
+  <%= @person_info.zhuanye %>
+</p>
+
+<p>
+  <strong>Zhiwu:</strong>
+  <%= @person_info.zhiwu %>
+</p>
+
+<p>
+  <strong>Minzu:</strong>
+  <%= @person_info.minzu %>
+</p>
+
+<p>
+  <strong>Political:</strong>
+  <%= @person_info.political %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @person_info.score_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @person_info.user_id %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @person_info.state %>
+</p>
+
+<%= link_to 'Edit', edit_person_info_path(@person_info) %> |
+<%= link_to 'Back', person_infos_path %>

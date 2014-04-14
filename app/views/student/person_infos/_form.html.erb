@@ -1,0 +1,18 @@
+<%= simple_form_for([:student, @person_info]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :gender_id, collection: Dict::Gender.options, prompt: "请选择" %>
+    <%= f.input :xuehao %>
+    <%= f.input :zhuanye %>
+    <%= f.input :zhiwu %>
+    <%= f.input :minzu %>
+    <%= f.input :political_id, collection: Dict::Political.options, prompt: "请选择" %>
+    <%= f.input :score_id, collection: Dict::Score.options, prompt: "请选择" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "保存" %>
+  </div>
+<% end %>

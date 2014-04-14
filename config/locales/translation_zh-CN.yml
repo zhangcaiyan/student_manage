@@ -10,6 +10,7 @@ zh-CN:
       user: 用户
       news: 公告
       score: 成绩
+      person_info: 用户信息
 
     attributes:
       user:
@@ -42,6 +43,18 @@ zh-CN:
         subject_id: 科目
         score_id: 成绩
         user_id: 所属学生
+
+      person_info:
+        name: 名称
+        gender_id: 性别
+        xuehao: 学号
+        zhuanye: 专业
+        zhiwu: 在校职务
+        minzu: 民族
+        political_id: 政治面貌
+        score_id: 平均分数
+        user_id: 所属用户
+
 
 
     symbolizes:

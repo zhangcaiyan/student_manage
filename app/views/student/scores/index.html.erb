@@ -1,6 +1,7 @@
 <h1>成绩管理</h1>
 
-<% if @students.zero? %>
+<% if @student_scores.blank? %>
+  请添加至少一项成绩，否则无法申请评优奖项
 <% end %>
 
 <table>
