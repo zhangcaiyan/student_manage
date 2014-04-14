@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>申请奖励:</strong>
+  <%= @reward_application.application.name %>
+</p>
+
+<p>
+  <strong>联系方式:</strong>
+  <%= @reward_application.phone %>
+</p>
+
+<p>
+  <strong>学院:</strong>
+  <%= @reward_application.xueyuan.name %>
+</p>
+
+<p>
+  <strong>申请说明:</strong>
+  <%= @reward_application.content %>
+</p>
+
+<p>
+  <strong>获得荣誉:</strong>
+  <%= @reward_application.rongyu %>
+</p>
+
+<%= link_to '编辑', edit_student_reward_application_path(@reward_application) %> |

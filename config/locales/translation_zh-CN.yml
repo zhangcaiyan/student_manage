@@ -11,6 +11,7 @@ zh-CN:
       news: 公告
       score: 成绩
       person_info: 用户信息
+      reward_application: 申请奖励
 
     attributes:
       user:
@@ -54,6 +55,15 @@ zh-CN:
         political_id: 政治面貌
         score_id: 平均分数
         user_id: 所属用户
+
+      reward_application:
+        application_id: 申请奖励
+        phone: 联系电话
+        xueyuan_id: 所属学院
+        content: 申请说明
+        rongyu: 所获荣誉
+        user_id: 所属用户
+
 
 
 

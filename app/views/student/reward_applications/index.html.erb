@@ -1,0 +1,37 @@
+<h1>评优奖励申请 管理</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>申请奖励</th>
+      <th>联系方式</th>
+      <th>学院</th>
+      <th>申请说明</th>
+      <th>获得荣誉</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reward_applications.each do |reward_application| %>
+      <tr>
+        <td><%= reward_application.application_id %></td>
+        <td><%= reward_application.phone %></td>
+        <td><%= reward_application.xueyuan_id %></td>
+        <td><%= reward_application.content %></td>
+        <td><%= reward_application.rongyu %></td>
+        <td><%= link_to '浏览', student_reward_application_path(reward_application) %></td>
+        <td><%= link_to '编辑', edit_student_reward_application_path(reward_application) %></td>
+        <td><%= link_to '删除', student_reward_application_path(reward_application), method: :delete, data: { confirm: '确认删除您正申请的奖励吗?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= will_paginate @reward_applications %>
+
+<%= link_to '申请评优奖励', new_student_reward_application_path %>

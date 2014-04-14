@@ -8,6 +8,27 @@ module Dict
 
   end
 
+  class Application < Dict::Base
+
+    self.data = [
+      {id: 1, name: "奖学金"},
+      {id: 2, name: "大学生标兵"},
+      {id: 3, name: "优秀大学生"}
+    ]
+  end
+
+  class Xueyuan < Dict::Base
+
+    self.data = [
+      {id: 1, name: "工程学院"},
+      {id: 2, name: "法学院"},
+      {id: 3, name: "农学院"},
+      {id: 4, name: "基础医学院"},
+      {id: 5, name: "护理学院"},
+      {id: 6, name: "软件学院"}
+    ]
+  end
+
   class Political < Dict::Base
 
     self.data = [
