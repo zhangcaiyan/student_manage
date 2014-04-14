@@ -1,0 +1,35 @@
+<h1>成绩管理</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>成绩分类</th>
+      <th>学期</th>
+      <th>科目</th>
+      <th>成绩</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @student_scores.each do |student_score| %>
+      <tr>
+        <td><%= student_score.category.name %></td>
+        <td><%= student_score.xueqi.try(:name) %></td>
+        <td><%= student_score.subject.try(:name) %></td>
+        <td><%= student_score.score.name %></td>
+        <td><%= link_to '浏览', student_score_path(student_score) %></td>
+        <td><%= link_to '编辑', edit_student_score_path(student_score) %></td>
+        <td><%= link_to '删除', student_score_path(student_score), method: :delete, data: { confirm: '确认删除吗?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= will_paginate @student_scores %>
+
+<%= link_to '添加成绩', new_student_score_path %>

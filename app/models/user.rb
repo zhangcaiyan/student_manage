@@ -12,4 +12,6 @@ class User < ActiveRecord::Base
   symbolize :category, in: [:student, :admin, :xuegongchu], scopes: :shallow, methods: true
 
   default_value_for :category, :student
+
+  has_many :scores
 end

@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>评优评助系统</title>
+  <title>评优评助系统-后台管理</title>
   <%= render "/shared/head" %>
 </head>
 <body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= render "/shared/admin_left" %>
   <% if user_signed_in? %>
     <%= link_to '退出', destroy_user_session_path, method: :delete %>
   <% end %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <br/>
   <%= yield %>
 
   <%= render "/shared/js" %>
+
 </body>
 </html>

@@ -1,8 +1,12 @@
 StudentManage::Application.routes.draw do
 
+  namespace :admin do
+    resources :news
+  end
 
   namespace :admin do
     get "home" => "home#index"
+    resources :users
   end
 
   namespace :xuegongchu do
@@ -11,6 +15,7 @@ StudentManage::Application.routes.draw do
 
   namespace :student do
     get "home" => "home#index"
+    resources :scores
   end
 
   devise_for :users

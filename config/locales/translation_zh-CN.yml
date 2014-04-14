@@ -8,6 +8,8 @@ zh-CN:
   activerecord:
     models:
       user: 用户
+      news: 公告
+      score: 成绩
 
     attributes:
       user:
@@ -28,13 +30,26 @@ zh-CN:
         password_confirmation: 密码确认
         current_password: 当前密码
         remember_me: 记住密码
+        category: 用户类型
+
+      news:
+        title: 标题
+        content: 内容
+
+      score:
+        category_id: 成绩分类
+        xueqi_id: 学期
+        subject_id: 科目
+        score_id: 成绩
+        user_id: 所属学生
 
 
     symbolizes:
       user:
-        student: 学生
-        admin: 管理员
-        xuegongchu: 学工处
+        category:
+          student: 学生
+          admin: 管理员
+          xuegongchu: 学工处
 
 
 

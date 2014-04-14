@@ -1,0 +1,8 @@
+<% if current_user.admin? %>
+<%= link_to "全部用户", admin_users_path %>
+<%= link_to "公告管理", admin_news_index_path %>
+<% end %>
+
+<% if current_user.student? %>
+<%= link_to "成绩管理", student_scores_path %>
+<% end %>

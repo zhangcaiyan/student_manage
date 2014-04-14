@@ -1,8 +1,6 @@
 class Student::BaseController < ApplicationController
 
-  # layout "admin"
-
-
+  layout "admin"
 
 
 end
