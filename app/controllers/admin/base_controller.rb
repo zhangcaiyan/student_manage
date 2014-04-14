@@ -8,7 +8,7 @@ class Admin::BaseController < ApplicationController
 
   def authenticate_admin!
     if !user_signed_in? || !current_user.admin?
-        redirect_to home_path
+      redirect_to home_path
     end
   end
 
