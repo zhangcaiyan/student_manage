@@ -24,7 +24,7 @@ class Score < ActiveRecord::Base
   protected
 
   def verify_xueqi_id
-    errors.add(:xueqi_id, "学期不能为空") if category_id == 2
+    errors.add(:xueqi_id, "学期不能为空") if category_id == 2 && xueqi_id.blank?
   end
 
   def setup_xueqi_id
