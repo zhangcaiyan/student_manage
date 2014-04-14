@@ -13,5 +13,5 @@ class User < ActiveRecord::Base
 
   default_value_for :category, :student
 
-  has_many :scores
+  has_many :scores, dependent: :destroy
 end

@@ -1,7 +1,7 @@
 defaults: &defaults
   user:
     user0:
-      username: wushanshan
+      username: zhangcaiyan
       password: 123456
       password_confirmation: 123456
       category: student
