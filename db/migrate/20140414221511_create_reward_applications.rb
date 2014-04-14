@@ -7,6 +7,7 @@ class CreateRewardApplications < ActiveRecord::Migration
       t.text :content
       t.text :rongyu
       t.integer :user_id
+      t.string :state
 
       t.timestamps
     end
