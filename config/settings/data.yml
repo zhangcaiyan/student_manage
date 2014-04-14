@@ -2,20 +2,20 @@ defaults: &defaults
   user:
     user0:
       username: wushanshan
-      password: wushanshan
-      password_confirmation: wushanshan
+      password: 123456
+      password_confirmation: 123456
       category: student
 
     user1:
       username: xuegongchu
-      password: xuegongchu
-      password_confirmation: xuegongchu
+      password: 123456
+      password_confirmation: 123456
       category: xuegongchu
 
     admin:
       username: admin
-      password: admin
-      password_confirmation: admin
+      password: 123456
+      password_confirmation: 123456
       category: :admin
 
 
