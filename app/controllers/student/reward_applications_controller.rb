@@ -1,5 +1,6 @@
 class Student::RewardApplicationsController < Student::BaseController
-  before_action :set_reward_application, only: [:show, :edit, :update, :destroy, :change]
+  prepend_before_action :set_reward_application, only: [:show, :edit, :update, :destroy, :change]
+  before_action :verify_edit_reward_application, only: :edit
 
   def index
     @reward_applications = current_user.reward_applications.page(params[:page]).per_page(10)
@@ -56,6 +57,12 @@ class Student::RewardApplicationsController < Student::BaseController
   end
 
   private
+    def verify_edit_reward_application
+      if !(@reward_application.weishangbao? || @reward_application.yishangbao?)
+        redirect_to student_reward_applications_url, notice: "#{@reward_application.state}的申请不可以编辑"
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_reward_application
       @reward_application = current_user.reward_applications.find(params[:id])

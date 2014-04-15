@@ -1,16 +1,20 @@
 <% if user_signed_in? %>
   您好，<%= current_user.username %>
 <% end %>
+
 <% if current_user.admin? %>
 <%= link_to "用户管理", admin_users_path %>
 <%= link_to "公告管理", admin_news_index_path %>
 <%= link_to "学院管理", admin_xueyuans_path %>
 <%= link_to "专业管理", admin_zhuanyes_path %>
 <%= link_to "奖励管理", admin_applications_path %>
-
 <% end %>
 
 <% if current_user.student? %>
 <%= link_to "成绩管理", student_scores_path %>
 <%= link_to "评优奖励申请管理", student_reward_applications_path %>
+<% end %>
+
+<% if current_user.xuegongchu? %>
+<%= link_to "评优奖励申请管理", xuegongchu_reward_applications_path %>
 <% end %>
