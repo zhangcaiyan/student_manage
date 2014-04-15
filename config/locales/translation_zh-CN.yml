@@ -12,6 +12,7 @@ zh-CN:
       score: 成绩
       person_info: 用户信息
       reward_application: 申请奖励
+      xueyuan: 学院
 
     attributes:
       user:
@@ -63,6 +64,9 @@ zh-CN:
         content: 申请说明
         rongyu: 所获荣誉
         user_id: 所属用户
+
+      xueyuan:
+        name: 学院名称
 
 
 

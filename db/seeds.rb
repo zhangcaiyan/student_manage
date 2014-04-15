@@ -14,3 +14,7 @@ $data.user.keys.each do |key|
     user.save(validate: false)
   end
 end
+
+["工程学院", "法学院", "农学院", "基础医学院", "护理学院", "软件学院"].each do |name|
+  Xueyuan.find_or_create_by(name: name)
+end
