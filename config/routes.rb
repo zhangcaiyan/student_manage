@@ -1,6 +1,10 @@
 StudentManage::Application.routes.draw do
 
   namespace :admin do
+    resources :zhuanyes
+  end
+
+  namespace :admin do
     get "home" => "home#index"
     resources :news
     resources :applications

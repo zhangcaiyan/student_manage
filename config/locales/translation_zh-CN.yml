@@ -72,6 +72,10 @@ zh-CN:
       application:
         name: 名称
 
+      zhuanye:
+        name: 名称
+        xueyuan_id: 所属学院
+
 
 
 
