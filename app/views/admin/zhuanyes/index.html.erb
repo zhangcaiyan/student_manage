@@ -15,7 +15,7 @@
     <% @zhuanyes.each do |zhuanye| %>
       <tr>
         <td><%= zhuanye.name %></td>
-        <td><%= zhuanye.xueyuan_id %></td>
+        <td><%= zhuanye.xueyuan.name %></td>
         <td><%= link_to '编辑', edit_admin_zhuanye_path(zhuanye) %></td>
         <td><%= link_to '删除', admin_zhuanye_path(zhuanye), method: :delete, data: { confirm: '确认删除吗?' } %></td>
       </tr>

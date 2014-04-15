@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>名称</th>
+      <th>专业数</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,6 +15,8 @@
     <% @xueyuans.each do |xueyuan| %>
       <tr>
         <td><%= xueyuan.name %></td>
+        <td><%= xueyuan.zhuanyes.count %></td>
+        <td><%= link_to '浏览', admin_xueyuan_path(xueyuan) %></td>
         <td><%= link_to '编辑', edit_admin_xueyuan_path(xueyuan) %></td>
         <td><%= link_to '删除', admin_xueyuan_path(xueyuan), method: :delete, data: { confirm: '确认删除吗?' } %></td>
       </tr>

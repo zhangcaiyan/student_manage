@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>学院名称:</strong>
   <%= @xueyuan.name %>
 </p>
 
-<%= link_to 'Edit', edit_xueyuan_path(@xueyuan) %> |
-<%= link_to 'Back', xueyuans_path %>
+<p>
+  <strong>包含专业:</strong>
+  <%= @xueyuan.zhuanyes.pluck(:name).join(", ") %>
+</p>
+
+<%= link_to '编辑', edit_admin_xueyuan_path(@xueyuan) %> |
