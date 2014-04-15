@@ -13,6 +13,7 @@ zh-CN:
       person_info: 用户信息
       reward_application: 申请奖励
       xueyuan: 学院
+      application: 奖学金
 
     attributes:
       user:
@@ -66,7 +67,10 @@ zh-CN:
         user_id: 所属用户
 
       xueyuan:
-        name: 学院名称
+        name: 名称
+
+      application:
+        name: 名称
 
 
 

@@ -1,0 +1,26 @@
+<h1>奖励管理</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @applications.each do |application| %>
+      <tr>
+        <td><%= application.name %></td>
+        <td><%= link_to '编辑', edit_admin_application_path(application) %></td>
+        <td><%= link_to '删除', admin_application_path(application), method: :delete, data: { confirm: '确认删除吗?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '奖励 添加', new_admin_application_path %>

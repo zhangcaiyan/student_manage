@@ -18,3 +18,7 @@ end
 ["工程学院", "法学院", "农学院", "基础医学院", "护理学院", "软件学院"].each do |name|
   Xueyuan.find_or_create_by(name: name)
 end
+
+["奖学金", "大学生标兵", "优秀大学生"].each do |name|
+  Application.find_or_create_by(name: name)
+end
