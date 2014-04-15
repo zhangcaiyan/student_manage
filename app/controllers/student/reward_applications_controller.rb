@@ -3,7 +3,7 @@ class Student::RewardApplicationsController < Student::BaseController
 
   def index
     @reward_applications = current_user.reward_applications.page(params[:page]).per_page(10)
-    @yishangbao_reward_application = current_user.reward_applications.with_state(:yishangbao)
+    @yishangbao_reward_application = current_user.reward_applications.with_state(:yishangbao).first
   end
 
   def show

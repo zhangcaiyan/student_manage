@@ -2,6 +2,10 @@
 
 注意： 评优奖励可以添加多項，但是同一时刻只能申请一項
 
+<% if @yishangbao_reward_application.present? %>
+  当前正在申请评优奖励: <%= link_to @yishangbao_reward_application.application.name, student_reward_application_path(@yishangbao_reward_application) %>
+<% end %>
+
 <table>
   <thead>
     <tr>
