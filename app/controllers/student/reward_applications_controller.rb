@@ -1,8 +1,9 @@
 class Student::RewardApplicationsController < Student::BaseController
-  before_action :set_reward_application, only: [:show, :edit, :update, :destroy]
+  before_action :set_reward_application, only: [:show, :edit, :update, :destroy, :change]
 
   def index
     @reward_applications = current_user.reward_applications.page(params[:page]).per_page(10)
+    @yishangbao_reward_application = current_user.reward_applications.with_state(:yishangbao)
   end
 
   def show
@@ -47,6 +48,11 @@ class Student::RewardApplicationsController < Student::BaseController
       format.html { redirect_to student_reward_applications_url }
       format.json { head :no_content }
     end
+  end
+
+  def change
+    @reward_application.send(params[:shijian].to_sym)
+    redirect_to student_reward_applications_url
   end
 
   private

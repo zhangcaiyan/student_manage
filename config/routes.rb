@@ -14,7 +14,11 @@ StudentManage::Application.routes.draw do
   end
 
   namespace :student do
-    resources :reward_applications
+    resources :reward_applications do
+      member do
+        get :change
+      end
+    end
     resources :person_infos, except: [:index, :destroy]
     get "home" => "home#index"
     resources :scores

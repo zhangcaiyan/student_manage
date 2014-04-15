@@ -1,9 +1,12 @@
 <h1>评优奖励申请 管理</h1>
 
+注意： 评优奖励可以添加多項，但是同一时刻只能申请一項
+
 <table>
   <thead>
     <tr>
       <th>申请奖励</th>
+      <th>状态</th>
       <th>联系方式</th>
       <th>学院</th>
       <th>申请说明</th>
@@ -17,14 +20,21 @@
   <tbody>
     <% @reward_applications.each do |reward_application| %>
       <tr>
-        <td><%= reward_application.application_id %></td>
+        <td><%= reward_application.application.name %></td>
+        <td><%= reward_application.state %></td>
         <td><%= reward_application.phone %></td>
-        <td><%= reward_application.xueyuan_id %></td>
+        <td><%= reward_application.xueyuan.name %></td>
         <td><%= reward_application.content %></td>
         <td><%= reward_application.rongyu %></td>
         <td><%= link_to '浏览', student_reward_application_path(reward_application) %></td>
         <td><%= link_to '编辑', edit_student_reward_application_path(reward_application) %></td>
         <td><%= link_to '删除', student_reward_application_path(reward_application), method: :delete, data: { confirm: '确认删除您正申请的奖励吗?' } %></td>
+        <% if @yishangbao_reward_application.blank? && reward_application.weishangbao? %>
+          <td><%= link_to '上报', change_student_reward_application_path(reward_application, shijian: "shangbao") %></td>
+        <% end %>
+        <% if reward_application.yishangbao? %>
+          <td><%= link_to '撤回', change_student_reward_application_path(reward_application, shijian: "chehui") %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

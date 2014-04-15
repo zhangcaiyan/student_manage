@@ -7,6 +7,7 @@ class RewardApplication < ActiveRecord::Base
   belongs_to :xueyuan, class_name: "Dict::Xueyuan"
 
   validates_presence_of :application_id, :phone, :xueyuan_id, :content, :rongyu, :user_id, :state
+  validate :verify_state, :verify_event
 
   state_machine initial: :weishangbao do
     event :shangbao do
@@ -15,6 +16,7 @@ class RewardApplication < ActiveRecord::Base
 
     event :chehui do
       transition :yishangbao => :weishangbao
+      transition :yishengpi => :weishangbao
     end
 
     event :shenpi do
@@ -37,6 +39,17 @@ class RewardApplication < ActiveRecord::Base
     state :yitongguo, value: "已通过"
   end
 
+  protected
+
+  def verify_state
+    yishangbao_reward_application = user.reward_applications.with_state(:yishangbao)
+    errors.add(:base, "您已经上报了一份评优申请") if yishangbao_reward_application.present? && yishangbao?
+  end
+
+  def verify_event
+    errors.add(:base, "无权限此操作") if user.student? && (yishengpi? || yitongguo? || yijujue?)
+  end
+
 end
 
 # 上报  审批、撤回、决绝
@@ -48,4 +61,4 @@ end
 # 上报后的申请单如果未经审批,在申请阶段可以撤回
 
 #问题：
-#拒绝的申请，学生能否继续申请
+#拒绝的申请，学生不能继续申请
