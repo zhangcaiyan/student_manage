@@ -56,7 +56,7 @@ class Student::PersonInfosController < Student::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_info_params
-      params.require(:person_info).permit(:name, :gender_id, :xuehao, :zhuanye, :zhiwu, :minzu, :political_id, :score_id, :user_id, :state)
+      params.require(:person_info).permit(:name, :gender_id, :xuehao, :zhuanye_id, :zhiwu, :minzu, :political_id, :score_id, :user_id, :state)
     end
 
     def redirect_where_path

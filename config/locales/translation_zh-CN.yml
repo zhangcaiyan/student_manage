@@ -51,7 +51,7 @@ zh-CN:
         name: 名称
         gender_id: 性别
         xuehao: 学号
-        zhuanye: 专业
+        zhuanye_id: 专业
         zhiwu: 在校职务
         minzu: 民族
         political_id: 政治面貌

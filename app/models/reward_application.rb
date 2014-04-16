@@ -3,8 +3,8 @@ class RewardApplication < ActiveRecord::Base
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   belongs_to :user
-  belongs_to :application, class_name: "Dict::Application"
-  belongs_to :xueyuan, class_name: "Dict::Xueyuan"
+  belongs_to :application, class_name: :Application
+  belongs_to :xueyuan, class_name: :Xueyuan
 
   validates_presence_of :application_id, :phone, :xueyuan_id, :content, :rongyu, :user_id, :state
   validate :verify_state, :verify_event

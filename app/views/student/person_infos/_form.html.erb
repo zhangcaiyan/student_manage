@@ -5,7 +5,7 @@
     <%= f.input :name %>
     <%= f.input :gender_id, collection: Dict::Gender.options, prompt: "请选择" %>
     <%= f.input :xuehao %>
-    <%= f.input :zhuanye %>
+    <%= f.input :zhuanye_id, collection: Zhuanye.pluck(:name, :id), prompt: "请选择" %>
     <%= f.input :zhiwu %>
     <%= f.input :minzu %>
     <%= f.input :political_id, collection: Dict::Political.options, prompt: "请选择" %>

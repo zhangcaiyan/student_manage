@@ -2,9 +2,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :application_id, collection: Dict::Application.options, prompt: "请选择" %>
+    <%= f.input :application_id, collection: ::Application.pluck(:name, :id), prompt: "请选择" %>
     <%= f.input :phone %>
-    <%= f.input :xueyuan_id, collection: Dict::Xueyuan.options, prompt: "请选择" %>
+    <%= f.input :xueyuan_id, collection: Xueyuan.pluck(:name, :id), prompt: "请选择" %>
     <%= f.input :content %>
     <%= f.input :rongyu %>
   </div>
