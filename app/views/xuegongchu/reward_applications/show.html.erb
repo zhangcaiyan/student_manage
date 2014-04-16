@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>姓名:</strong>
+  <%= @reward_application.user.person_info.name %>
+</p>
+
+<p>
+  <strong>性别:</strong>
+  <%= @reward_application.user.person_info.gender.name %>
+</p>
+
+<p>
+  <strong>学号:</strong>
+  <%= @reward_application.user.person_info.xuehao %>
+</p>
+
+<p>
+  <strong>专业:</strong>
+  <%= @reward_application.user.person_info.zhuanye %>
+</p>
+
+<p>
+  <strong>职务:</strong>
+  <%= @reward_application.user.person_info.zhiwu %>
+</p>
+
+<p>
+  <strong>政治面貌:</strong>
+  <%= @reward_application.user.person_info.political.name %>
+</p>
+
+<p>
+  <strong>申请奖励:</strong>
+  <%= @reward_application.application.name %>
+</p>
+
+<p>
+  <strong>联系方式:</strong>
+  <%= @reward_application.phone %>
+</p>
+
+<p>
+  <strong>学院:</strong>
+  <%= @reward_application.xueyuan.name %>
+</p>
+
+<p>
+  <strong>申请说明:</strong>
+  <%= @reward_application.content %>
+</p>
+
+<p>
+  <strong>获得荣誉:</strong>
+  <%= @reward_application.rongyu %>
+</p>
+
+<p>
+  <strong>申请状态:</strong>
+  <%= @reward_application.state %>
+</p>
+

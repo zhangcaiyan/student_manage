@@ -7,12 +7,18 @@ defaults: &defaults
       category: student
 
     user1:
+      username: zhangcaiyan1
+      password: 123456
+      password_confirmation: 123456
+      category: student
+
+    user2:
       username: xuegongchu
       password: 123456
       password_confirmation: 123456
       category: xuegongchu
 
-    admin:
+    admin3:
       username: admin
       password: 123456
       password_confirmation: 123456

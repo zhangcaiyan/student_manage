@@ -14,6 +14,11 @@ StudentManage::Application.routes.draw do
 
   namespace :xuegongchu do
     get "home" => "home#index"
+    resources :reward_applications, only: [:index, :show] do
+      member do
+        get :change
+      end
+    end
   end
 
   namespace :student do

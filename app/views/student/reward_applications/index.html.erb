@@ -31,8 +31,10 @@
         <td><%= reward_application.content %></td>
         <td><%= reward_application.rongyu %></td>
         <td><%= link_to '浏览', student_reward_application_path(reward_application) %></td>
+        <% if reward_application.weishangbao? || reward_application.yishangbao? %>
         <td><%= link_to '编辑', edit_student_reward_application_path(reward_application) %></td>
         <td><%= link_to '删除', student_reward_application_path(reward_application), method: :delete, data: { confirm: '确认删除您正申请的奖励吗?' } %></td>
+        <% end %>
         <% if @yishangbao_reward_application.blank? && reward_application.weishangbao? %>
           <td><%= link_to '上报', change_student_reward_application_path(reward_application, shijian: "shangbao") %></td>
         <% end %>
