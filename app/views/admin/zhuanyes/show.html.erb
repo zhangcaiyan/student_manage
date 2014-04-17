@@ -12,3 +12,11 @@
 
 <%= link_to 'Edit', edit_zhuanye_path(@zhuanye) %> |
 <%= link_to 'Back', zhuanyes_path %>
+
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#admin_zhuanye").addClass("active")
+    })
+  </script>
+<% end %>

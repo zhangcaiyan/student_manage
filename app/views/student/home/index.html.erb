@@ -11,3 +11,12 @@ student 后台
 <% if ApplicationDate.count.zero? %>
   管理员尚未创建评优奖励申请的时间阶段,您可以添加评优申请，但是暂时无法上报
 <% end %>
+
+
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#student_home").addClass("active")
+    })
+  </script>
+<% end %>

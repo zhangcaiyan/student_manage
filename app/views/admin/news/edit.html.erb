@@ -12,3 +12,12 @@
 <%= render 'form' %>
 
 <%= link_to '浏览', admin_news_path(@admin_news) %> |
+
+
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#admin_news").addClass("active")
+    })
+  </script>
+<% end %>

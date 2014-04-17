@@ -31,3 +31,11 @@
 </p>
 
 <%= link_to '编辑', edit_student_reward_application_path(@reward_application) %> |
+
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#student_reward_application").addClass("active")
+    })
+  </script>
+<% end %>

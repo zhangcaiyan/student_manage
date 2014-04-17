@@ -20,5 +20,12 @@
 
 公告总数: <%= News.count %>
 
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#admin_home").addClass("active")
+    })
+  </script>
+<% end %>
 
 

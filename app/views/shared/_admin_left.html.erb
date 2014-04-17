@@ -26,49 +26,49 @@
       <ul class="nav nav-list">
 
         <% if current_user.admin? %>
-          <li>
+          <li id="admin_home">
             <%= link_to admin_home_path do %>
               <i class="icon-user"></i>
               <span class="menu-text"> 后台管理首页 </span>
             <% end %>
           </li>
 
-          <li>
+          <li id="admin_user">
             <%= link_to admin_users_path do %>
               <i class="icon-list"></i>
               <span class="menu-text"> 用户管理 </span>
             <% end %>
           </li>
 
-          <li>
+          <li id="admin_news">
             <%= link_to admin_news_index_path do %>
               <i class="icon-list"></i>
               <span class="menu-text"> 公告管理 </span>
             <% end %>
           </li>
 
-          <li>
+          <li id="admin_xueyuan">
             <%= link_to admin_xueyuans_path do %>
               <i class="icon-list"></i>
               <span class="menu-text"> 学院管理 </span>
             <% end %>
           </li>
 
-          <li>
+          <li id="admin_zhuanye">
             <%= link_to admin_zhuanyes_path do %>
               <i class="icon-list"></i>
               <span class="menu-text"> 专业管理 </span>
             <% end %>
           </li>
 
-          <li>
+          <li id="admin_application">
             <%= link_to admin_applications_path do %>
               <i class="icon-list"></i>
               <span class="menu-text"> 评优奖励管理 </span>
             <% end %>
           </li>
 
-          <li>
+          <li id="admin_application_date">
             <%= link_to new_admin_application_date_path do %>
               <i class="icon-list"></i>
               <span class="menu-text"> 时间阶段管理 </span>
@@ -78,19 +78,19 @@
         <% end %>
 
         <% if current_user.student? %>
-        <li>
+        <li id="student_home">
           <%= link_to student_home_path do %>
             <i class="icon-user"></i>
             <span class="menu-text"> 后台管理首页 </span>
           <% end %>
         </li>
-        <li>
+        <li id="student_score">
           <%= link_to student_scores_path do %>
             <i class="icon-list"></i>
             <span class="menu-text"> 成绩管理 </span>
           <% end %>
         </li>
-        <li>
+        <li id="student_reward_application">
           <%= link_to student_reward_applications_path do %>
             <i class="icon-list"></i>
             <span class="menu-text"> 评优奖励申请管理 </span>
@@ -100,13 +100,13 @@
         <% end %>
 
         <% if current_user.xuegongchu? %>
-        <li>
+        <li id="xuegongchu_home">
           <%= link_to xuegongchu_home_path do %>
             <i class="icon-user"></i>
             <span class="menu-text"> 后台管理首页 </span>
           <% end %>
         </li>
-        <li>
+        <li id="xuegongchu_reward_application">
           <%= link_to xuegongchu_reward_applications_path do %>
             <i class="icon-list"></i>
             <span class="menu-text"> 评优奖励申请管理 </span>

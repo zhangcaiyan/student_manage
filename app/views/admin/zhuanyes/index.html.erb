@@ -34,3 +34,11 @@
 <br>
 
 <%= link_to '添加专业', new_admin_zhuanye_path %>
+
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#admin_zhuanye").addClass("active")
+    })
+  </script>
+<% end %>

@@ -29,3 +29,11 @@
 </table>
 
 <%= will_paginate @users %>
+
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#admin_user").addClass("active")
+    })
+  </script>
+<% end %>

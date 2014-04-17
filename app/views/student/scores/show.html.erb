@@ -23,3 +23,11 @@
 
 
 <%= link_to '编辑', edit_student_score_path(@student_score) %> |
+
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#student_score").addClass("active")
+    })
+  </script>
+<% end %>

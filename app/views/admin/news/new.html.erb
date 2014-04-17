@@ -12,3 +12,10 @@
 <%= render 'form' %>
 
 
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#admin_news").addClass("active")
+    })
+  </script>
+<% end %>

@@ -68,3 +68,11 @@
   <%= @reward_application.state %>
 </p>
 
+
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#xuegongchu_reward_application").addClass("active")
+    })
+  </script>
+<% end %>

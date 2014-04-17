@@ -61,3 +61,11 @@
 <%= will_paginate @reward_applications %>
 
 <%= link_to '申请评优奖励', new_student_reward_application_path %>
+
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#student_reward_application").addClass("active")
+    })
+  </script>
+<% end %>

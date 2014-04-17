@@ -10,3 +10,10 @@
 
 <%= render 'form' %>
 
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#student_score").addClass("active")
+    })
+  </script>
+<% end %>

@@ -10,4 +10,10 @@
   <%= @admin_news.content %>
 </p>
 
-
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#admin_news").addClass("active")
+    })
+  </script>
+<% end %>

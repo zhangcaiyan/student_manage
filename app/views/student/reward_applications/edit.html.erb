@@ -11,3 +11,10 @@
 <%= render 'form' %>
 
 
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#student_reward_application").addClass("active")
+    })
+  </script>
+<% end %>

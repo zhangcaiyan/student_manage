@@ -1,3 +1,11 @@
 <br/>
 用户名称: <%= @user.username %><br/>
 用户分类: <%= @user.category_text %><br/>
+
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#admin_user").addClass("active")
+    })
+  </script>
+<% end %>

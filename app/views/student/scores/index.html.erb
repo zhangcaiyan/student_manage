@@ -45,3 +45,11 @@
 <%= will_paginate @student_scores %>
 
 <%= link_to '添加成绩', new_student_score_path %>
+
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#student_score").addClass("active")
+    })
+  </script>
+<% end %>

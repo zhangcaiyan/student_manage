@@ -10,3 +10,10 @@
 
 <%= render 'form' %>
 
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#admin_zhuanye").addClass("active")
+    })
+  </script>
+<% end %>

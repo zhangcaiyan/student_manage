@@ -36,3 +36,11 @@
 <br>
 
 <%= link_to '添加学院', new_admin_xueyuan_path %>
+
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#admin_xueyuan").addClass("active")
+    })
+  </script>
+<% end %>

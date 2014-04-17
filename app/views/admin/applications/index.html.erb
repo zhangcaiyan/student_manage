@@ -32,3 +32,11 @@
 <br>
 
 <%= link_to '评优奖励 添加', new_admin_application_path %>
+
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#admin_application").addClass("active")
+    })
+  </script>
+<% end %>

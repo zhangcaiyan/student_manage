@@ -35,3 +35,11 @@
 <br>
 
 <%= link_to 'New Application date', new_application_date_path %>
+
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#admin_application_date").addClass("active")
+    })
+  </script>
+<% end %>
