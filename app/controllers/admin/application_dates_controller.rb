@@ -76,7 +76,7 @@ class Admin::ApplicationDatesController < Admin::BaseController
     def redirect_where_path
       application_date = ApplicationDate.first
       if application_date.present? && params[:action] == "new"
-        redirect_to edit_application_date_path(application_date)
+        redirect_to edit_admin_application_date_path(application_date)
       elsif application_date.nil? && params[:action] == "edit"
         redirect_to new_application_dates_path
       end

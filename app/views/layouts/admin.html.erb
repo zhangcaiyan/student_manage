@@ -5,20 +5,9 @@
   <%= render "/shared/head" %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+
+  <%= render "/shared/admin_top" %>
   <%= render "/shared/admin_left" %>
-  <% if user_signed_in? %>
-    <%= link_to '退出', destroy_user_session_path, method: :delete %>
-    <%= link_to "修改密码", edit_user_registration_path %>
-    <% if current_user.student? %>
-      <%= link_to "修改用户信息", new_student_person_info_path %>
-    <% end %>
-  <% end %>
-  <br/>
-  <%= yield %>
-
   <%= render "/shared/js" %>
-
 </body>
 </html>
