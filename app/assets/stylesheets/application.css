@@ -13,4 +13,8 @@
  *= require bootstrap_and_overrides.css.scss
  *= require scaffolds.css.scss
  *= require font-awesome.min.css
+ *= require ace-fonts.css
+ *= require ace.css
+ *= require ace-rtl.css
+ *= require ace-skins.css
  */

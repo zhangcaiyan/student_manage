@@ -15,4 +15,6 @@
 //= require kindeditor
 //= require turbolinks
 //= require twitter/bootstrap
-//= require_tree .
+//= require ace-extra.min.js
+//= require ace-elements.min.js
+//= require ace.min.js
