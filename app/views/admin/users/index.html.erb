@@ -1,3 +1,11 @@
+<% content_for :breadcrumb do %>
+<li>
+  <i class="icon-home home-icon"></i>
+  <a href="<%= home_path %>">首页</a>
+</li>
+<li class="active">用户管理</li>
+<% end %>
+
 <h1>用户管理</h1>
 <%= link_to "添加用户", new_admin_user_path %>
 

@@ -1,4 +1,12 @@
-<h1>奖励 编辑</h1>
+<% content_for :breadcrumb do %>
+<li>
+  <i class="icon-home home-icon"></i>
+  <a href="<%= home_path %>">首页</a>
+</li>
+<li class="active">评优奖励编辑</li>
+<% end %>
+
+<h1>评优奖励 编辑</h1>
 
 <%= render 'form' %>
 

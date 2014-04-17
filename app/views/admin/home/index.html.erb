@@ -1,3 +1,12 @@
+<% content_for :breadcrumb do %>
+<li>
+  <i class="icon-home home-icon"></i>
+  <a href="<%= home_path %>">首页</a>
+</li>
+<li class="active">后台管理首页</li>
+<% end %>
+
+
 <% if ApplicationDate.count.zero? %>
   您尚未<%= link_to "创建时间阶段", new_admin_application_date_path %>,所有学生暂时无法申请评优奖励
 <% else %>
@@ -10,3 +19,6 @@
 用户总数: <%= User.count %><br/>
 
 公告总数: <%= News.count %>
+
+
+

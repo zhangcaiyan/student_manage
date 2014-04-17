@@ -1,4 +1,12 @@
-<h1>奖励管理</h1>
+<% content_for :breadcrumb do %>
+<li>
+  <i class="icon-home home-icon"></i>
+  <a href="<%= home_path %>">首页</a>
+</li>
+<li class="active">评优奖励管理</li>
+<% end %>
+
+<h1>评优奖励管理</h1>
 
 <table>
   <thead>
@@ -23,4 +31,4 @@
 
 <br>
 
-<%= link_to '奖励 添加', new_admin_application_path %>
+<%= link_to '评优奖励 添加', new_admin_application_path %>

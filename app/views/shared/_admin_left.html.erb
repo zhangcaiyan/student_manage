@@ -18,24 +18,17 @@
           <%= link_to_icon "icon-home", '', home_path, class: "btn btn-success" %>
           <%= link_to_icon "icon-user", '', admin_home_path, class: "btn btn-info" %>
           <%= link_to_icon "icon-key", '', edit_user_registration_path, class: "btn btn-warning" %>
-          <%= link_to_icon "icon-off", '', new_student_person_info_path, class: "btn btn-danger" %>
+          <%= link_to_icon "icon-off", '', destroy_user_session_path, class: "btn btn-danger", method: :delete %>
         </div>
 
       </div><!-- #sidebar-shortcuts -->
 
       <ul class="nav nav-list">
 
-        <li class="active">
-          <%= link_to home_path do %>
-            <i class="icon-home"></i>
-            <span class="menu-text"> 首页 </span>
-          <% end %>
-        </li>
-
         <% if current_user.admin? %>
           <li>
             <%= link_to admin_home_path do %>
-              <i class="icon-list"></i>
+              <i class="icon-user"></i>
               <span class="menu-text"> 后台管理首页 </span>
             <% end %>
           </li>
@@ -87,7 +80,7 @@
         <% if current_user.student? %>
         <li>
           <%= link_to student_home_path do %>
-            <i class="icon-list"></i>
+            <i class="icon-user"></i>
             <span class="menu-text"> 后台管理首页 </span>
           <% end %>
         </li>
@@ -109,7 +102,7 @@
         <% if current_user.xuegongchu? %>
         <li>
           <%= link_to xuegongchu_home_path do %>
-            <i class="icon-list"></i>
+            <i class="icon-user"></i>
             <span class="menu-text"> 后台管理首页 </span>
           <% end %>
         </li>
