@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start at:</strong>
+  <%= @application_date.start_at %>
+</p>
+
+<p>
+  <strong>End at:</strong>
+  <%= @application_date.end_at %>
+</p>
+
+<%= link_to 'Edit', edit_application_date_path(@application_date) %> |
+<%= link_to 'Back', application_dates_path %>

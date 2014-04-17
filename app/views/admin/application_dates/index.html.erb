@@ -1,0 +1,29 @@
+<h1>时间阶段 管理</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start at</th>
+      <th>End at</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @application_dates.each do |application_date| %>
+      <tr>
+        <td><%= application_date.start_at %></td>
+        <td><%= application_date.end_at %></td>
+        <td><%= link_to 'Show', application_date %></td>
+        <td><%= link_to 'Edit', edit_application_date_path(application_date) %></td>
+        <td><%= link_to 'Destroy', application_date, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Application date', new_application_date_path %>

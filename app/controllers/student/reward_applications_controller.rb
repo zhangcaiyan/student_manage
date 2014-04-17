@@ -1,6 +1,7 @@
 class Student::RewardApplicationsController < Student::BaseController
   prepend_before_action :set_reward_application, only: [:show, :edit, :update, :destroy, :change]
   before_action :verify_edit_reward_application, only: :edit
+  before_action :verify_application_date, only: :change
 
   def index
     @reward_applications = current_user.reward_applications.page(params[:page]).per_page(10)
@@ -60,6 +61,13 @@ class Student::RewardApplicationsController < Student::BaseController
     def verify_edit_reward_application
       if !(@reward_application.weishangbao? || @reward_application.yishangbao?)
         redirect_to student_reward_applications_url, notice: "#{@reward_application.state}的申请不可以编辑"
+      end
+    end
+
+    def verify_application_date
+      application_date = ApplicationDate.first
+      if application_date.blank? || Date.current < application_date.start_at || Date.current > application_date.end_at
+        redirect_to student_home_path, notice: "评优奖励申请时间阶段尚未创建 或者 您不在该时间阶段内"
       end
     end
 

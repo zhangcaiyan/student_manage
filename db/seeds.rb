@@ -43,3 +43,7 @@ end
 ["奖学金", "大学生标兵", "优秀大学生"].each do |name|
   Application.find_or_create_by(name: name)
 end
+
+start_at = "2014-03-01"
+end_at = "2014-12-12"
+ApplicationDate.find_or_create_by(start_at: start_at, end_at: end_at)

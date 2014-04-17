@@ -35,12 +35,14 @@
         <td><%= link_to '编辑', edit_student_reward_application_path(reward_application) %></td>
         <td><%= link_to '删除', student_reward_application_path(reward_application), method: :delete, data: { confirm: '确认删除您正申请的奖励吗?' } %></td>
         <% end %>
-        <% if @yishangbao_reward_application.blank? && reward_application.weishangbao? %>
-          <td><%= link_to '上报', change_student_reward_application_path(reward_application, shijian: "shangbao") %></td>
-        <% end %>
-        <% if reward_application.yishangbao? %>
-          <td><%= link_to '撤回', change_student_reward_application_path(reward_application, shijian: "chehui") %></td>
-        <% end %>
+        <%# if ApplicationDate.first.present? && Date.current <= ApplicationDate.first.end_at && Date.current >= ApplicationDate.first.start_at %>
+          <% if @yishangbao_reward_application.blank? && reward_application.weishangbao? %>
+            <td><%= link_to '上报', change_student_reward_application_path(reward_application, shijian: "shangbao") %></td>
+          <% end %>
+          <% if reward_application.yishangbao? %>
+            <td><%= link_to '撤回', change_student_reward_application_path(reward_application, shijian: "chehui") %></td>
+          <% end %>
+        <%# end %>
       </tr>
     <% end %>
   </tbody>

@@ -1,3 +1,9 @@
+<% if ApplicationDate.count.zero? %>
+  您尚未<%= link_to "创建时间阶段", new_admin_application_date_path %>,所有学生暂时无法申请评优奖励
+<% else %>
+  目前申请评优奖励的时间阶段是<%= l ApplicationDate.first.start_date.to_date %> 到 <%= l ApplicationDate.first.end_date.to_date %>
+<% end %>
+
 学生总数: <%= User.student.count %><br/>
 学工处总数: <%= User.xuegongchu.count %><br/>
 管理员总数: <%= User.admin.count %><br/>
