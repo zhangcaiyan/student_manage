@@ -137,8 +137,23 @@
         </ul><!-- .breadcrumb -->
 
       </div>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if notice %>
+        <div class="alert alert-success">
+          <button aria-hidden="true" data-dismiss="alert" class="close" type="button">
+            <i class="fa fa-times-circle"></i>
+          </button>
+          <%= notice %>
+        </div>
+      <% end %>
+
+      <% if alert %>
+        <div class="alert alert-danger">
+          <button aria-hidden="true" data-dismiss="alert" class="close" type="button">
+            <i class="fa fa-times-circle"></i>
+          </button>
+          <%= alert %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
 

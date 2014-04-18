@@ -6,37 +6,50 @@
 <li class="active">公告管理</li>
 <% end %>
 
-<h1>公告管理</h1>
+<div class="page-content">
+  <div class="page-header">
+    <h1>
+      公告管理
+      <small>
+        <i class="icon-double-angle-right"></i>
+        <%= link_to '公告添加', new_admin_news_path %>
+      </small>
+    </h1>
+  </div><!-- /.page-header -->
 
-<table>
-  <thead>
-    <tr>
-      <th>标题</th>
-      <th>发布时间</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <div class="row">
+    <div class="col-xs-12">
 
-  <tbody>
-    <% @admin_news.each do |admin_news| %>
-      <tr>
-        <td><%= truncate(admin_news.title, length: 30) %></td>
-        <td><%= l admin_news.created_at.to_date %></td>
-        <td><%= link_to '浏览', admin_news_path(admin_news) %></td>
-        <td><%= link_to '编辑', edit_admin_news_path(admin_news) %></td>
-        <td><%= link_to '删除', admin_news_path(admin_news), method: :delete, data: { confirm: '确认删除吗?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>标题</th>
+          <th>发布时间</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
 
-<%= will_paginate @admin_news %>
+      <tbody>
+        <% @admin_news.each do |admin_news| %>
+          <tr>
+            <td><%= truncate(admin_news.title, length: 30) %></td>
+            <td><%= l admin_news.created_at.to_date %></td>
+            <td><%= link_to '浏览', admin_news_path(admin_news) %></td>
+            <td><%= link_to '编辑', edit_admin_news_path(admin_news) %></td>
+            <td><%= link_to '删除', admin_news_path(admin_news), method: :delete, data: { confirm: '确认删除吗?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<br>
+    <%= will_paginate @admin_news %>
 
-<%= link_to '公告添加', new_admin_news_path %>
+    </div>
+  </div>
+</div>
+
 
 <% content_for :script do %>
   <script>

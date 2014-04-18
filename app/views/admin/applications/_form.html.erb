@@ -1,11 +1,13 @@
-<%= simple_form_for([:admin, @application]) do |f| %>
+<%= simple_form_for([:admin, @application], wrapper: "default-form", html: {role: "form"}) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
+    <%= f.input :name, label_html: {class: "col-sm-2"} %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-md-10">
+      <%= f.button :submit, "保存", class: "btn-primary" %>
+    </div>
   </div>
 <% end %>

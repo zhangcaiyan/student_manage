@@ -4,7 +4,7 @@ class Admin::ZhuanyesController < Admin::BaseController
   # GET /admin/zhuanyes
   # GET /admin/zhuanyes.json
   def index
-    @zhuanyes = Zhuanye.all
+    @zhuanyes = Zhuanye.page(params[:page]).per_page(10)
   end
 
   # GET /admin/zhuanyes/1

@@ -6,35 +6,48 @@
 <li class="active">时间阶段管理</li>
 <% end %>
 
-<h1>时间阶段 管理</h1>
+<div class="page-content">
+  <div class="page-header">
+    <h1>
+      时间阶段 管理
+      <small>
+        <i class="icon-double-angle-right"></i>
+        <%= link_to '时间阶段 添加', new_admin_application_date_path %>
+      </small>
+    </h1>
+  </div><!-- /.page-header -->
 
-<table>
-  <thead>
-    <tr>
-      <th>Start at</th>
-      <th>End at</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <div class="row">
+    <div class="col-xs-12">
 
-  <tbody>
-    <% @application_dates.each do |application_date| %>
-      <tr>
-        <td><%= application_date.start_at %></td>
-        <td><%= application_date.end_at %></td>
-        <td><%= link_to 'Show', application_date %></td>
-        <td><%= link_to 'Edit', edit_admin_application_date_path(application_date) %></td>
-        <td><%= link_to 'Destroy', application_date, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Start at</th>
+          <th>End at</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
 
-<br>
+      <tbody>
+        <% @application_dates.each do |application_date| %>
+          <tr>
+            <td><%= application_date.start_at %></td>
+            <td><%= application_date.end_at %></td>
+            <td><%= link_to 'Show', application_date %></td>
+            <td><%= link_to 'Edit', edit_admin_application_date_path(application_date) %></td>
+            <td><%= link_to 'Destroy', application_date, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<%= link_to 'New Application date', new_application_date_path %>
+    </div>
+  </div>
+</div>
+
 
 <% content_for :script do %>
   <script>

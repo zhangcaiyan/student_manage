@@ -6,34 +6,50 @@
 <li class="active">专业管理</li>
 <% end %>
 
-<h1>专业管理</h1>
+<div class="page-content">
+  <div class="page-header">
+    <h1>
+      专业管理
+      <small>
+        <i class="icon-double-angle-right"></i>
+        <%= link_to '添加专业', new_admin_zhuanye_path %>
+      </small>
+    </h1>
+  </div><!-- /.page-header -->
 
-<table>
-  <thead>
-    <tr>
-      <th>名称</th>
-      <th>所属学院</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <div class="row">
+    <div class="col-xs-12">
 
-  <tbody>
-    <% @zhuanyes.each do |zhuanye| %>
-      <tr>
-        <td><%= zhuanye.name %></td>
-        <td><%= zhuanye.xueyuan.name %></td>
-        <td><%= link_to '编辑', edit_admin_zhuanye_path(zhuanye) %></td>
-        <td><%= link_to '删除', admin_zhuanye_path(zhuanye), method: :delete, data: { confirm: '确认删除吗?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>名称</th>
+          <th>所属学院</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
 
-<br>
+      <tbody>
+        <% @zhuanyes.each do |zhuanye| %>
+          <tr>
+            <td><%= zhuanye.name %></td>
+            <td><%= zhuanye.xueyuan.name %></td>
+            <td><%= link_to '编辑', edit_admin_zhuanye_path(zhuanye) %></td>
+            <td><%= link_to '删除', admin_zhuanye_path(zhuanye), method: :delete, data: { confirm: '确认删除吗?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<%= link_to '添加专业', new_admin_zhuanye_path %>
+    <%= will_paginate @zhuanyes %>
+
+    </div>
+  </div>
+</div>
+
+
 
 <% content_for :script do %>
   <script>

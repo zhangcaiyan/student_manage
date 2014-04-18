@@ -6,9 +6,20 @@
 <li class="active">专业添加</li>
 <% end %>
 
-<h1>专业 添加</h1>
+<div class="page-content">
+  <div class="page-header">
+    <h1>
+      专业添加
+    </h1>
+  </div><!-- /.page-header -->
 
-<%= render 'form' %>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= render "form" %>
+    </div>
+  </div>
+</div>
+
 
 <% content_for :script do %>
   <script>

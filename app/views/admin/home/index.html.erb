@@ -6,19 +6,110 @@
 <li class="active">后台管理首页</li>
 <% end %>
 
+<div class="page-content">
+  <div class="page-header">
+    <h1>
+      后台管理首页
+      <small>
+        <i class="icon-double-angle-right"></i>
+        基本概述
+      </small>
+    </h1>
+  </div><!-- /.page-header -->
 
-<% if ApplicationDate.count.zero? %>
-  您尚未<%= link_to "创建时间阶段", new_admin_application_date_path %>,所有学生暂时无法申请评优奖励
-<% else %>
-  目前申请评优奖励的时间阶段是<%= l ApplicationDate.first.start_at %> 到 <%= l ApplicationDate.first.end_at %>
-<% end %>
+  <div class="row">
+    <div class="col-xs-12">
 
-学生总数: <%= User.student.count %><br/>
-学工处总数: <%= User.xuegongchu.count %><br/>
-管理员总数: <%= User.admin.count %><br/>
-用户总数: <%= User.count %><br/>
+    <% if ApplicationDate.count.zero? %>
+      <div class="alert alert-block alert-danger">
+        <button data-dismiss="alert" class="close" type="button">
+          <i class="ace-icon fa fa-times"></i>
+        </button>
+        <i class="ace-icon fa fa-check green"></i>
+        您尚未<%= link_to "创建时间阶段", new_admin_application_date_path %>,所有学生暂时无法申请评优奖励
+      </div>
+    <% else %>
+      <div class="alert alert-block alert-success">
+        <button data-dismiss="alert" class="close" type="button">
+          <i class="ace-icon fa fa-times"></i>
+        </button>
+        <i class="ace-icon fa fa-check green"></i>
+        目前申请评优奖励的时间阶段是<%= l ApplicationDate.first.start_at %> 到 <%= l ApplicationDate.first.end_at %>
+      </div>
+    <% end %>
 
-公告总数: <%= News.count %>
+    <div class="profile-user-info profile-user-info-striped">
+
+      <div class="profile-info-row">
+        <div class="profile-info-name"> 用户总数 </div>
+
+        <div class="profile-info-value">
+          <i class="fa fa-map-marker light-orange bigger-110"></i>
+          <span class="editable editable-click"><%= link_to User.count, admin_users_path %></span>
+        </div>
+      </div>
+
+      <div class="profile-info-row">
+        <div class="profile-info-name"> 学生总数 </div>
+
+        <div class="profile-info-value">
+          <i class="fa fa-map-marker light-orange bigger-110"></i>
+          <span class="editable editable-click"><%= link_to User.student.count, admin_users_path %></span>
+        </div>
+      </div>
+
+      <div class="profile-info-row">
+        <div class="profile-info-name"> 学工处总数 </div>
+
+        <div class="profile-info-value">
+          <i class="fa fa-map-marker light-orange bigger-110"></i>
+          <span class="editable editable-click"><%= link_to User.xuegongchu.count, admin_users_path %></span>
+        </div>
+      </div>
+
+      <div class="profile-info-row">
+        <div class="profile-info-name"> 管理员总数 </div>
+
+        <div class="profile-info-value">
+          <i class="fa fa-map-marker light-orange bigger-110"></i>
+          <span class="editable editable-click"><%= link_to User.admin.count, admin_users_path %></span>
+        </div>
+      </div>
+
+      <div class="profile-info-row">
+        <div class="profile-info-name"> 公告总数 </div>
+
+        <div class="profile-info-value">
+          <i class="fa fa-map-marker light-orange bigger-110"></i>
+          <span class="editable editable-click"><%= link_to News.count, admin_news_index_path %></span>
+        </div>
+      </div>
+
+      <div class="profile-info-row">
+        <div class="profile-info-name"> 学院总数 </div>
+
+        <div class="profile-info-value">
+          <i class="fa fa-map-marker light-orange bigger-110"></i>
+          <span class="editable editable-click"><%= link_to Xueyuan.count, admin_xueyuans_path %></span>
+        </div>
+      </div>
+
+      <div class="profile-info-row">
+        <div class="profile-info-name"> 专业总数 </div>
+
+        <div class="profile-info-value">
+          <i class="fa fa-map-marker light-orange bigger-110"></i>
+          <span class="editable editable-click"><%= link_to Zhuanye.count, admin_zhuanyes_path %></span>
+        </div>
+      </div>
+
+    </div>
+
+    </div>
+  </div>
+
+</div>
+
 
 <% content_for :script do %>
   <script>

@@ -6,12 +6,19 @@
 <li class="active">公告编辑</li>
 <% end %>
 
+<div class="page-content">
+  <div class="page-header">
+    <h1>
+      公告编辑
+    </h1>
+  </div><!-- /.page-header -->
 
-<h1>公告编辑</h1>
-
-<%= render 'form' %>
-
-<%= link_to '浏览', admin_news_path(@admin_news) %> |
+  <div class="row">
+    <div class="col-xs-12">
+      <%= render "form" %>
+    </div>
+  </div>
+</div>
 
 
 <% content_for :script do %>

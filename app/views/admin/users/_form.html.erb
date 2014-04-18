@@ -1,8 +1,21 @@
-密码默认为123456<br/>
-<%= simple_form_for([:admin, @user]) do |f| %>
-  <%= f.input :username, required: true, autofocus: true %>
+<div class="alert alert-block alert-info">
+  <button data-dismiss="alert" class="close" type="button">
+    <i class="ace-icon fa fa-times"></i>
+  </button>
+  <i class="ace-icon fa fa-check green"></i>
+  密码默认为123456
+</div>
+
+
+<%= simple_form_for([:admin, @user], wrapper: "default-form", html: {role: "form"}) do |f| %>
+  <%= f.input :username, required: true, autofocus: true, label_html: {class: "col-sm-2"} %>
   <%= f.input :password, required: true, as: :hidden, input_html: {value: "123456"} %>
   <%= f.input :password_confirmation, required: true, as: :hidden, input_html: {value: "123456"} %>
-  <%= f.input :category, collection: User.get_category_values, required: true %>
-  <%= f.button :submit, "添加" %>
+  <%= f.input :category, collection: User.get_category_values, required: true, label_html: {class: "col-sm-2"} %>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-md-10">
+      <%= f.button :submit, "保存", class: "btn-primary" %>
+    </div>
+  </div>
 <% end %>

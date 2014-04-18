@@ -6,10 +6,19 @@
 <li class="active">用户编辑</li>
 <% end %>
 
+<div class="page-content">
+  <div class="page-header">
+    <h1>
+      用户编辑
+    </h1>
+  </div><!-- /.page-header -->
 
-<h1>用户编辑</h1>
-
-<%= render "form" %>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= render "form" %>
+    </div>
+  </div>
+</div>
 
 <% content_for :script do %>
   <script>
