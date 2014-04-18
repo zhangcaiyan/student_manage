@@ -6,61 +6,76 @@
 <li class="active">评优奖励申请管理</li>
 <% end %>
 
-<h1>评优奖励申请 管理</h1>
+<div class="page-content">
+  <div class="page-header">
+    <h1>
+      评优奖励申请 管理
+      <small>
+        <i class="icon-double-angle-right"></i>
+        <%= link_to '申请评优奖励', new_student_reward_application_path %>
+      </small>
+    </h1>
+  </div><!-- /.page-header -->
 
-注意： 评优奖励可以添加多項，但是同一时刻只能申请一項
 
-<% if @yishangbao_reward_application.present? %>
-  当前正在申请评优奖励: <%= link_to @yishangbao_reward_application.application.name, student_reward_application_path(@yishangbao_reward_application) %>
-<% end %>
+  <% if @yishangbao_reward_application.present? %>
+    <div class="alert alert-block alert-success">
+      <button data-dismiss="alert" class="close" type="button">
+        <i class="ace-icon fa fa-times"></i>
+      </button>
+      <i class="ace-icon fa fa-check green"></i>
+      注意： 评优奖励可以添加多項，但是同一时刻只能申请一項,当前正在申请评优奖励: <%= link_to @yishangbao_reward_application.application.name, student_reward_application_path(@yishangbao_reward_application) %>
+    </div>
+  <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>申请奖励</th>
-      <th>状态</th>
-      <th>联系方式</th>
-      <th>学院</th>
-      <th>申请说明</th>
-      <th>获得荣誉</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <div class="row">
+    <div class="col-xs-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>申请奖励</th>
+          <th>状态</th>
+          <th>联系方式</th>
+          <th>学院</th>
+          <th>申请说明</th>
+          <th>获得荣誉</th>
+          <th></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @reward_applications.each do |reward_application| %>
-      <tr>
-        <td><%= reward_application.application.name %></td>
-        <td><%= reward_application.state %></td>
-        <td><%= reward_application.phone %></td>
-        <td><%= reward_application.xueyuan.name %></td>
-        <td><%= reward_application.content %></td>
-        <td><%= reward_application.rongyu %></td>
-        <td><%= link_to '浏览', student_reward_application_path(reward_application) %></td>
-        <% if reward_application.weishangbao? || reward_application.yishangbao? %>
-        <td><%= link_to '编辑', edit_student_reward_application_path(reward_application) %></td>
-        <td><%= link_to '删除', student_reward_application_path(reward_application), method: :delete, data: { confirm: '确认删除您正申请的奖励吗?' } %></td>
+      <tbody>
+        <% @reward_applications.each do |reward_application| %>
+          <tr>
+            <td><%= reward_application.application.name %></td>
+            <td><%= reward_application.state %></td>
+            <td><%= reward_application.phone %></td>
+            <td><%= reward_application.xueyuan.name %></td>
+            <td><%= reward_application.content %></td>
+            <td><%= reward_application.rongyu %></td>
+            <td>
+            <%= link_to '浏览', student_reward_application_path(reward_application) %>
+            <% if reward_application.weishangbao? || reward_application.yishangbao? %>
+            <%= link_to '编辑', edit_student_reward_application_path(reward_application) %>
+            <%= link_to '删除', student_reward_application_path(reward_application), method: :delete, data: { confirm: '确认删除您正申请的奖励吗?' } %>
+            <% end %>
+            <% if @yishangbao_reward_application.blank? && reward_application.weishangbao? %>
+              <%= link_to '上报', change_student_reward_application_path(reward_application, shijian: "shangbao") %>
+            <% end %>
+            <% if reward_application.yishangbao? %>
+              <%= link_to '撤回', change_student_reward_application_path(reward_application, shijian: "chehui") %>
+            <% end %>
+            </td>
+          </tr>
         <% end %>
-        <%# if ApplicationDate.first.present? && Date.current <= ApplicationDate.first.end_at && Date.current >= ApplicationDate.first.start_at %>
-          <% if @yishangbao_reward_application.blank? && reward_application.weishangbao? %>
-            <td><%= link_to '上报', change_student_reward_application_path(reward_application, shijian: "shangbao") %></td>
-          <% end %>
-          <% if reward_application.yishangbao? %>
-            <td><%= link_to '撤回', change_student_reward_application_path(reward_application, shijian: "chehui") %></td>
-          <% end %>
-        <%# end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </tbody>
+    </table>
 
-<br>
+    <%= will_paginate @reward_applications %>
 
-<%= will_paginate @reward_applications %>
+    </div>
+  </div>
+</div>
 
-<%= link_to '申请评优奖励', new_student_reward_application_path %>
 
 <% content_for :script do %>
   <script>

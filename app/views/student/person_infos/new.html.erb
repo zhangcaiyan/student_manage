@@ -6,10 +6,27 @@
 <li class="active">用户信息添加</li>
 <% end %>
 
+<div class="page-content">
+  <div class="page-header">
+    <h1>
+      用户信息 添加
+    </h1>
+  </div><!-- /.page-header -->
 
-<h1>用户信息 添加</h1>
+  <div class="alert alert-block alert-success">
+    <button data-dismiss="alert" class="close" type="button">
+      <i class="ace-icon fa fa-times"></i>
+    </button>
+    <i class="ace-icon fa fa-check green"></i>
+    请先添加您的个人信息
+  </div>
 
-请先添加您的个人信息
+  <div class="row">
+    <div class="col-xs-12">
+      <%= render "form" %>
+    </div>
+  </div>
+</div>
 
-<%= render 'form' %>
+
 

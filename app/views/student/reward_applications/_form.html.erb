@@ -1,15 +1,16 @@
-<%= simple_form_for([:student, @reward_application]) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for([:student, @reward_application], wrapper: "default-form", html: {role: "form"}) do |f| %>
 
   <div class="form-inputs">
-    <%= f.input :application_id, collection: ::Application.pluck(:name, :id), prompt: "请选择" %>
-    <%= f.input :phone %>
-    <%= f.input :xueyuan_id, collection: Xueyuan.pluck(:name, :id), prompt: "请选择" %>
-    <%= f.input :content %>
-    <%= f.input :rongyu %>
+    <%= f.input :application_id, collection: ::Application.pluck(:name, :id), prompt: "请选择", label_html: {class: "col-sm-2"} %>
+    <%= f.input :phone, label_html: {class: "col-sm-2"} %>
+    <%= f.input :xueyuan_id, collection: Xueyuan.pluck(:name, :id), prompt: "请选择", label_html: {class: "col-sm-2"} %>
+    <%= f.input :content, label_html: {class: "col-sm-2"} %>
+    <%= f.input :rongyu, label_html: {class: "col-sm-2"} %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-md-10">
+      <%= f.button :submit, "保存", class: "btn-primary" %>
+    </div>
   </div>
 <% end %>

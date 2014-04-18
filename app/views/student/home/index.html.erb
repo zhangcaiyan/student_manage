@@ -6,11 +6,58 @@
 <li class="active">后台管理首页</li>
 <% end %>
 
-student 后台
+<div class="page-content">
+  <div class="page-header">
+    <h1>
+      后台管理首页
+      <small>
+        <i class="icon-double-angle-right"></i>
+        基本概述
+      </small>
+    </h1>
+  </div><!-- /.page-header -->
 
-<% if ApplicationDate.count.zero? %>
-  管理员尚未创建评优奖励申请的时间阶段,您可以添加评优申请，但是暂时无法上报
-<% end %>
+  <div class="row">
+    <div class="col-xs-12">
+
+    <% if ApplicationDate.count.zero? %>
+    <div class="alert alert-block alert-success">
+      <button data-dismiss="alert" class="close" type="button">
+        <i class="ace-icon fa fa-times"></i>
+      </button>
+      <i class="ace-icon fa fa-check green"></i>
+      管理员尚未创建评优奖励申请的时间阶段,您可以添加评优申请，但是暂时无法上报
+    </div>
+    <% end %>
+
+    <div class="profile-user-info profile-user-info-striped">
+
+      <div class="profile-info-row">
+        <div class="profile-info-name"> 成绩总数 </div>
+
+        <div class="profile-info-value">
+          <i class="fa fa-map-marker light-orange bigger-110"></i>
+          <span class="editable editable-click"><%= link_to Score.count, student_scores_path %></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-user-info profile-user-info-striped">
+
+      <div class="profile-info-row">
+        <div class="profile-info-name"> 评优奖励总数 </div>
+
+        <div class="profile-info-value">
+          <i class="fa fa-map-marker light-orange bigger-110"></i>
+          <span class="editable editable-click"><%= link_to RewardApplication.count, student_reward_applications_path %></span>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</div>
+
 
 
 <% content_for :script do %>

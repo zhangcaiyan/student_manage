@@ -1,5 +1,4 @@
 <%= simple_form_for([:admin, @admin_news], wrapper: "default-form", html: {role: "form"}) do |f| %>
-  <%= f.error_notification %>
 
   <%= f.input :title, label_html: {class: "col-sm-2"} %>
   <%= f.input :content, as: :kindeditor, input_html: {width: "60%", editor_id: "content"}, label_html: {class: "col-sm-2"} %>
