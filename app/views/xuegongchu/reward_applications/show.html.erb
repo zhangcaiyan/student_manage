@@ -6,67 +6,57 @@
 <li class="active">评优奖励申请浏览</li>
 <% end %>
 
-<p id="notice"><%= notice %></p>
+<div class="page-content">
+  <div class="page-header">
+    <h1>
+      评优奖励申请浏览
+    </h1>
+  </div>
 
-<p>
-  <strong>姓名:</strong>
-  <%= @reward_application.user.person_info.name %>
-</p>
+  <% if notice %>
+  <div class="alert alert-block alert-success">
+    <button data-dismiss="alert" class="close" type="button">
+      <i class="ace-icon fa fa-times"></i>
+    </button>
+    <i class="ace-icon fa fa-check green"></i>
+    <%= notice %>
+  </div>
+  <% end %>
 
-<p>
-  <strong>性别:</strong>
-  <%= @reward_application.user.person_info.gender.name %>
-</p>
 
-<p>
-  <strong>学号:</strong>
-  <%= @reward_application.user.person_info.xuehao %>
-</p>
+  <div class="row">
+    <div class="col-xs-12">
+      <dl class="dl-horizontal">
+        <dt>姓名</dt>
+        <dd><%= @reward_application.user.person_info.name %></dd>
+        <dt>性别</dt>
+        <dd><%= @reward_application.user.person_info.gender.name %></dd>
+        <dt>学号</dt>
+        <dd><%= @reward_application.user.person_info.xuehao %></dd>
+        <dt>专业</dt>
+        <dd><%= @reward_application.user.person_info.zhuanye %></dd>
+        <dt>职务</dt>
+        <dd><%= @reward_application.user.person_info.zhiwu %></dd>
+        <dt>政治面貌</dt>
+        <dd><%= @reward_application.user.person_info.political.name %></dd>
+        <dt>申请奖励</dt>
+        <dd><%= @reward_application.application.name %></dd>
+        <dt>联系方式</dt>
+        <dd><%= @reward_application.phone %></dd>
+        <dt>学院</dt>
+        <dd><%= @reward_application.xueyuan.name %></dd>
+        <dt>申请说明</dt>
+        <dd><%= @reward_application.content %></dd>
+        <dt>获得荣誉</dt>
+        <dd><%= @reward_application.rongyu %></dd>
+        <dt>申请状态</dt>
+        <dd><%= @reward_application.state %></dd>
+      </dl>
+    </div>
+  </div>
 
-<p>
-  <strong>专业:</strong>
-  <%= @reward_application.user.person_info.zhuanye %>
-</p>
+</div>
 
-<p>
-  <strong>职务:</strong>
-  <%= @reward_application.user.person_info.zhiwu %>
-</p>
-
-<p>
-  <strong>政治面貌:</strong>
-  <%= @reward_application.user.person_info.political.name %>
-</p>
-
-<p>
-  <strong>申请奖励:</strong>
-  <%= @reward_application.application.name %>
-</p>
-
-<p>
-  <strong>联系方式:</strong>
-  <%= @reward_application.phone %>
-</p>
-
-<p>
-  <strong>学院:</strong>
-  <%= @reward_application.xueyuan.name %>
-</p>
-
-<p>
-  <strong>申请说明:</strong>
-  <%= @reward_application.content %>
-</p>
-
-<p>
-  <strong>获得荣誉:</strong>
-  <%= @reward_application.rongyu %>
-</p>
-
-<p>
-  <strong>申请状态:</strong>
-  <%= @reward_application.state %>
-</p>
 
 
 <% content_for :script do %>

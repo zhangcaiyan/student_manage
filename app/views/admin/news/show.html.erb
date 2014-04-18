@@ -1,14 +1,38 @@
-<p id="notice"><%= notice %></p>
+<% content_for :breadcrumb do %>
+<li>
+  <i class="icon-home home-icon"></i>
+  <a href="<%= home_path %>">首页</a>
+</li>
+<li class="active">公告管理</li>
+<% end %>
 
-<p>
-  <strong>标题:</strong>
-  <%= @admin_news.title %>
-</p>
+<div class="page-content">
+  <div class="page-header">
+    <h1>
+      <%= @admin_news.title %>
+    </h1>
+  </div>
 
-<p>
-  <strong>内容:</strong>
-  <%= @admin_news.content %>
-</p>
+  <% if notice %>
+  <div class="alert alert-block alert-success">
+    <button data-dismiss="alert" class="close" type="button">
+      <i class="ace-icon fa fa-times"></i>
+    </button>
+    <i class="ace-icon fa fa-check green"></i>
+    <%= notice %>
+  </div>
+  <% end %>
+
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= @admin_news.content.html_safe %>
+
+    </div>
+  </div>
+
+</div>
+
 
 <% content_for :script do %>
   <script>

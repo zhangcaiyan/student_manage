@@ -1,16 +1,43 @@
-<p id="notice"><%= notice %></p>
+<% content_for :breadcrumb do %>
+<li>
+  <i class="icon-home home-icon"></i>
+  <a href="<%= home_path %>">首页</a>
+</li>
+<li class="active">学院管理</li>
+<% end %>
 
-<p>
-  <strong>学院名称:</strong>
-  <%= @xueyuan.name %>
-</p>
+<div class="page-content">
+  <div class="page-header">
+    <h1>
+      学院详情
+    </h1>
+  </div>
 
-<p>
-  <strong>包含专业:</strong>
-  <%= @xueyuan.zhuanyes.pluck(:name).join(", ") %>
-</p>
+  <% if notice %>
+  <div class="alert alert-block alert-success">
+    <button data-dismiss="alert" class="close" type="button">
+      <i class="ace-icon fa fa-times"></i>
+    </button>
+    <i class="ace-icon fa fa-check green"></i>
+    <%= notice %>
+  </div>
+  <% end %>
 
-<%= link_to '编辑', edit_admin_xueyuan_path(@xueyuan) %> |
+
+  <div class="row">
+    <div class="col-xs-12">
+      <dl class="dl-horizontal">
+        <dt>学院名称</dt>
+        <dd><%= @xueyuan.name %></dd>
+        <dt>包含专业</dt>
+        <dd><%= @xueyuan.zhuanyes.pluck(:name).join(", ") %></dd>
+
+      </dl>
+    </div>
+  </div>
+
+</div>
+
 
 <% content_for :script do %>
   <script>

@@ -6,7 +6,47 @@
 <li class="active">后台管理首页</li>
 <% end %>
 
-xuegongchu 后台
+<div class="page-content">
+  <div class="page-header">
+    <h1>
+      后台管理首页
+      <small>
+        <i class="icon-double-angle-right"></i>
+        基本概述
+      </small>
+    </h1>
+  </div><!-- /.page-header -->
+
+  <div class="row">
+    <div class="col-xs-12">
+
+
+    <div class="alert alert-block alert-success">
+      <button data-dismiss="alert" class="close" type="button">
+        <i class="ace-icon fa fa-times"></i>
+      </button>
+      <i class="ace-icon fa fa-check green"></i>
+      今日申请的评优奖励数目<%= @current_date_reward_applications.count %>
+    </div>
+
+    <div class="profile-user-info profile-user-info-striped">
+
+      <div class="profile-info-row">
+        <div class="profile-info-name"> 评优奖励总数 </div>
+
+        <div class="profile-info-value">
+          <i class="fa fa-map-marker light-orange bigger-110"></i>
+          <span class="editable editable-click"><%= link_to RewardApplication.count, xuegongchu_reward_applications_path %></span>
+        </div>
+      </div>
+
+
+    </div>
+
+    </div>
+  </div>
+
+</div>
 
 <% content_for :script do %>
   <script>

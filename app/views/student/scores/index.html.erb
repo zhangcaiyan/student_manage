@@ -37,8 +37,6 @@
           <th>科目</th>
           <th>成绩</th>
           <th></th>
-          <th></th>
-          <th></th>
         </tr>
       </thead>
 
@@ -49,9 +47,11 @@
             <td><%= student_score.xueqi.try(:name) %></td>
             <td><%= student_score.subject.try(:name) %></td>
             <td><%= student_score.score.name %></td>
-            <td><%= link_to '浏览', student_score_path(student_score) %></td>
-            <td><%= link_to '编辑', edit_student_score_path(student_score) %></td>
-            <td><%= link_to '删除', student_score_path(student_score), method: :delete, data: { confirm: '确认删除吗?' } %></td>
+            <td>
+              <%= link_to '浏览', student_score_path(student_score) %>
+              <%= link_to '编辑', edit_student_score_path(student_score) %>
+              <%= link_to '删除', student_score_path(student_score), method: :delete, data: { confirm: '确认删除吗?' } %>
+            </td>
           </tr>
         <% end %>
       </tbody>
