@@ -1,13 +1,13 @@
 defaults: &defaults
   user:
     user0:
-      username: zhangcaiyan
+      username: student
       password: 123456
       password_confirmation: 123456
       category: student
 
     user1:
-      username: zhangcaiyan1
+      username: student1
       password: 123456
       password_confirmation: 123456
       category: student

@@ -1,7 +1,9 @@
+<% js "kindeditor" %>
+
 <%= simple_form_for([:admin, @admin_news], wrapper: "default-form", html: {role: "form"}) do |f| %>
 
   <%= f.input :title, label_html: {class: "col-sm-2"} %>
-  <%= f.input :content, as: :kindeditor, input_html: {width: "60%", editor_id: "content"}, label_html: {class: "col-sm-2"} %>
+  <%= f.input :content, as: :kindeditor, input_html: {width: "80%", editor_id: "content"}, label_html: {class: "col-sm-2"} %>
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-md-10">
