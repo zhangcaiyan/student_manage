@@ -3,6 +3,7 @@ class Student::RewardApplicationsController < Student::BaseController
   before_action :verify_edit_reward_application, only: :edit
   before_action :verify_application_date, only: :change
 
+
   def index
     @reward_applications = current_user.reward_applications.page(params[:page]).per_page(10)
     @yishangbao_reward_application = current_user.reward_applications.with_state(:yishangbao).first
@@ -58,6 +59,7 @@ class Student::RewardApplicationsController < Student::BaseController
   end
 
   private
+
     def verify_edit_reward_application
       if !(@reward_application.weishangbao? || @reward_application.yishangbao?)
         redirect_to student_reward_applications_url, notice: "#{@reward_application.state}的申请不可以编辑"

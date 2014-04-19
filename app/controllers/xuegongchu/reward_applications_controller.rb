@@ -12,7 +12,7 @@ class Xuegongchu::RewardApplicationsController < Xuegongchu::BaseController
   def change
     @reward_application = RewardApplication.find(params[:id])
     @reward_application.send(params[:shijian].to_sym)
-    redirect_to xuegongchu_reward_application_url(@reward_application)
+    redirect_to xuegongchu_reward_applications_url
   end
 
 

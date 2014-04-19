@@ -7,7 +7,7 @@ class RewardApplication < ActiveRecord::Base
   belongs_to :xueyuan, class_name: :Xueyuan
 
   validates_presence_of :application_id, :phone, :xueyuan_id, :content, :rongyu, :user_id, :state
-  validate :verify_state, :verify_can_update
+  validate :verify_state
   # , :verify_event
 
   state_machine initial: :weishangbao do
@@ -46,10 +46,6 @@ class RewardApplication < ActiveRecord::Base
 
 
   protected
-
-  def verify_can_update
-    errors.add(:base, "现在不可以编辑申请") if !(weishangbao? || yishangbao?)
-  end
 
   def verify_state
     yishangbao_reward_application = user.reward_applications.with_state(:yishangbao)

@@ -13,6 +13,7 @@
        <thead>
          <tr>
            <th>获得者</th>
+           <th>申请状态</th>
            <th>申请奖励</th>
            <th>学院</th>
            <th>申请说明</th>
@@ -24,6 +25,7 @@
          <% @reward_applications.each do |reward_application| %>
            <tr>
              <td><%= reward_application.user.try(:person_info).try(:name) %></td>
+             <td><%= reward_application.state %></td>
              <td><%= reward_application.application.try(:name) %></td>
              <td><%= reward_application.xueyuan.try(:name) %></td>
              <td><%= reward_application.content %></td>
