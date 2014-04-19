@@ -1,28 +1,49 @@
-== README
+启动项目：
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+进入项目目录下， rails server
+打开浏览器， localhost:3000(注意： 如果不是在windows下访问项目，就是localhost换位虚拟机ubuntu的ip)
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+项目介绍：
+
+默认用户名和密码：
+
+管理员：      admin                123456
+学工处：      xuegongchu     123456
+学生用户：  student             123456
+
+
+系统介绍：
+
+系统分为4部分，分别是 系统前台、管理员后台、学工处后台、学生后台
+
+系统前台介绍：
+
+首页：    显示 已通过、 已拒绝、 已审批 的 评优奖励申请 列表
+公告：    显示管理员发布的最新公告列表
+
+管理员后台介绍：
+
+管理员后台首页：  管理员后台相关信息的概述
+用户管理：     创建用户（默认密码为123456）、编辑用户、删除用户
+公告管理：     公告的添加、编辑、删除
+学院管理：     学院的添加、编辑、删除
+专业管理：     专业的添加、编辑、删除
+评优奖励管理：  评优奖励的添加、编辑、删除，目前包括三种奖励 奖学金、大学生标兵、优秀大学生， 学生可以申请管理员添加的奖励
+时间阶段管理：  管理申请奖励的时间阶段，目前默认是2014-03-01  至  2014-12-12，学生在申请奖励时，必须在此时间内
+
+
+学生后台介绍：
+
+学生后台首页：  学生后台相关信息的概述
+成绩管理：   成绩的 添加、编辑、删除、浏览
+评优奖励申请管理：  评优奖励添加、编辑、删除、上报、撤回（同一时间只能上传一个申请，只有在该申请处于已上报和未上报状态时，才能修改，当学工处审批过后就无法修改）
+
+学工处后台介绍：
+
+学工处后台首页：  学工处后台相关信息的概述
+评优奖励申请管理：  评优奖励的 删除、浏览、撤回、 审批、拒绝、通过（只有审批过后才可以拒绝和通过操作，一旦通过和拒绝就可以在首页出现）
+
+
+
+
