@@ -5,7 +5,7 @@
 
   <div class="navbar-container" id="navbar-container">
     <div class="navbar-header pull-left">
-      <a href="#" class="navbar-brand">
+      <a href="<%= home_path %>" class="navbar-brand">
         <small>
           <i class="icon-leaf"></i>
           评优管理系统
@@ -92,27 +92,40 @@
         <% end %>
 
         <li class="light-blue">
-          <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-            <%= current_user.username %>
-            <i class="icon-caret-down"></i>
-          </a>
+          <% if user_signed_in? %>
+            <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+              <%= current_user.username %>
+              <i class="icon-caret-down"></i>
+            </a>
 
-          <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-            <li>
-              <%= link_to_icon "icon-key", "修改密码", edit_user_registration_path %>
-            </li>
+            <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+              <li>
+              <% if current_user.admin? %>
+                <%= link_to_icon 'icon-user', "后台管理", admin_home_path %>
+              <% elsif current_user.student? %>
+                <%= link_to_icon 'icon-user', "后台管理", student_home_path %>
+              <% elsif current_user.xuegongchu? %>
+                <%= link_to_icon 'icon-user', "后台管理", xuegongchu_home_path %>
+              <% end %>
+              </li>
+              <li>
+                <%= link_to_icon "icon-key", "修改密码", edit_user_registration_path %>
+              </li>
 
-            <li>
-            <% if current_user.student? %>
-              <%= link_to_icon 'icon-user', "修改用户信息", new_student_person_info_path %>
-            <% end %>
-            </li>
+              <li>
+              <% if current_user.student? %>
+                <%= link_to_icon 'icon-user', "修改用户信息", new_student_person_info_path %>
+              <% end %>
+              </li>
 
-            <li class="divider"></li>
-            <li>
-              <%= link_to_icon "icon-off", '退出', destroy_user_session_path, method: :delete %>
-            </li>
-          </ul>
+              <li class="divider"></li>
+              <li>
+                <%= link_to_icon "icon-off", '退出', destroy_user_session_path, method: :delete %>
+              </li>
+            </ul>
+          <% else %>
+            <%= link_to '登陆', new_user_session_path %>
+          <% end %>
         </li>
       </ul><!-- /.ace-nav -->
     </div><!-- /.navbar-header -->

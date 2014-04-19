@@ -5,16 +5,7 @@
   <%= render "/shared/head" %>
 </head>
 <body>
-  <% if user_signed_in? %>
-    <% if current_user.admin? %>
-      <%= link_to "后台管理", admin_home_path %>
-    <% elsif current_user.student? %>
-      <%= link_to "后台管理", student_home_path %>
-    <% elsif current_user.xuegongchu? %>
-      <%= link_to "后台管理", xuegongchu_home_path %>
-    <% end %>
-    <%= link_to '退出', destroy_user_session_path, method: :delete %>
-  <% end %>
+  <%= render "/shared/admin_top" %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <%= yield %>

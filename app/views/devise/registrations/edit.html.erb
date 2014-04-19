@@ -6,27 +6,42 @@
 <li class="active">修改密码</li>
 <% end %>
 
+<div class="page-content">
+  <div class="page-header">
+    <h1>
+      修改密码
+    </h1>
+  </div><!-- /.page-header -->
 
-<h2>修改密码</h2>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), wrapper: "default-form", html: { method: :put, role: "form" }) do |f| %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <div class="form-inputs">
+          <%#= f.input :username, required: true, autofocus: true %>
 
-  <div class="form-inputs">
-    <%#= f.input :username, required: true, autofocus: true %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+          <%= f.input :password, autocomplete: "off", required: false, label_html: {class: "col-sm-2"} %>
+          <%= f.input :password_confirmation, required: false, label_html: {class: "col-sm-2"} %>
+          <%= f.input :current_password, required: true, label_html: {class: "col-sm-2"} %>
+        </div>
 
-    <%= f.input :password, autocomplete: "off", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, required: true %>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-md-10">
+            <%= f.button :submit, "保存", class: "btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "更新密码" %>
-  </div>
-<% end %>
+
+
+
 
 <% if nil %>
 
