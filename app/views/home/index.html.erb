@@ -1,0 +1,51 @@
+<div class="page-content wrapper_page">
+
+  <div class="page-header">
+    <h1>
+      评优奖励获得者
+    </h1>
+  </div><!-- /.page-header -->
+
+  <div class="row">
+    <div class="col-xs-12">
+
+     <table class="table">
+       <thead>
+         <tr>
+           <th>获得者</th>
+           <th>申请奖励</th>
+           <th>学院</th>
+           <th>申请说明</th>
+           <th>获得荣誉</th>
+         </tr>
+       </thead>
+
+       <tbody>
+         <% @reward_applications.each do |reward_application| %>
+           <tr>
+             <td><%= reward_application.user.try(:person_info).try(:name) %></td>
+             <td><%= reward_application.application.try(:name) %></td>
+             <td><%= reward_application.xueyuan.try(:name) %></td>
+             <td><%= reward_application.content %></td>
+             <td><%= reward_application.rongyu %></td>
+           </tr>
+         <% end %>
+       </tbody>
+     </table>
+
+     <%= will_paginate @reward_applications, class: "text-center" %>
+
+
+    </div>
+  </div>
+
+</div>
+
+
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#home_page").addClass("active")
+    })
+  </script>
+<% end %>

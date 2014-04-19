@@ -1,0 +1,45 @@
+<div class="page-content wrapper_page">
+
+  <div class="page-header">
+    <h1>
+      最新公告
+    </h1>
+  </div><!-- /.page-header -->
+
+  <div class="row">
+    <div class="col-xs-12">
+
+     <table class="table">
+       <thead>
+         <tr>
+           <th>公告名称</th>
+           <th>发布日期</th>
+         </tr>
+       </thead>
+
+       <tbody>
+         <% @news.each do |news| %>
+           <tr>
+             <td><%= link_to news.title, news_path(news), target: "_blank" %></td>
+             <td><%= l news.created_at.to_date %></td>
+           </tr>
+         <% end %>
+       </tbody>
+     </table>
+
+     <%= will_paginate @news, class: "text-center" %>
+
+
+    </div>
+  </div>
+
+</div>
+
+
+<% content_for :script do %>
+  <script>
+    $(function(){
+      $("#news_page").addClass("active")
+    })
+  </script>
+<% end %>

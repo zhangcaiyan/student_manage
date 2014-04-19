@@ -18,3 +18,8 @@
  *= require ace-rtl.css
  *= require ace-skins.css
  */
+
+
+.wrapper_page{
+  min-height: 600px;
+}
