@@ -1,6 +1,7 @@
 启动项目：
 
-进入项目目录下， rails server
+1: 进入项目目录下， cd /home/wushanshan/student_manage 
+2: rails server
 打开浏览器， localhost:3000(注意： 如果不是在windows下访问项目，就是localhost换位虚拟机ubuntu的ip)
 
 
