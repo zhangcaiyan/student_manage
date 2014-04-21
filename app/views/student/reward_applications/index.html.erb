@@ -46,10 +46,10 @@
       <tbody>
         <% @reward_applications.each do |reward_application| %>
           <tr>
-            <td><%= reward_application.application.name %></td>
+            <td><%= reward_application.application.try(:name) %></td>
             <td><%= reward_application.state %></td>
             <td><%= reward_application.phone %></td>
-            <td><%= reward_application.xueyuan.name %></td>
+            <td><%= reward_application.xueyuan.try(:name) %></td>
             <td><%= reward_application.content %></td>
             <td><%= reward_application.rongyu %></td>
             <td>
