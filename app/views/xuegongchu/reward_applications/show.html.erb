@@ -40,7 +40,7 @@
         <dt>政治面貌</dt>
         <dd><%= @reward_application.user.person_info.political.name %></dd>
         <dt>申请奖励</dt>
-        <dd><%= @reward_application.application.name %></dd>
+        <dd><%= @reward_application.application.try(:name) %></dd>
         <dt>联系方式</dt>
         <dd><%= @reward_application.phone %></dd>
         <dt>学院</dt>

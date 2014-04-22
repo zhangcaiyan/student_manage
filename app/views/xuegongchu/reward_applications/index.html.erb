@@ -41,10 +41,10 @@
           <tr>
             <td><%= person_info.name %></td>
             <td><%= person_info.gender.name %></td>
-            <td><%= reward_application.application.name %></td>
+            <td><%= reward_application.application.try(:name) %></td>
             <td><%= reward_application.state %></td>
             <td><%= reward_application.phone %></td>
-            <td><%= reward_application.xueyuan.name %></td>
+            <td><%= reward_application.xueyuan.try(:name) %></td>
             <td><%= reward_application.content %></td>
             <td><%= reward_application.rongyu %></td>
             <td>
