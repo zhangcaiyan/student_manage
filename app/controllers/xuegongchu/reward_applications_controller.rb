@@ -7,6 +7,7 @@ class Xuegongchu::RewardApplicationsController < Xuegongchu::BaseController
 
   def show
     @reward_application = RewardApplication.find(params[:id])
+    @student_scores = @reward_application.user.scores.page(params[:page]).per_page(10)
   end
 
   def change

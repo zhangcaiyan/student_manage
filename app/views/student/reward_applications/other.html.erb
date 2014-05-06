@@ -3,59 +3,46 @@
   <i class="icon-home home-icon"></i>
   <a href="<%= home_path %>">首页</a>
 </li>
-<li class="active">评优奖励申请管理</li>
+<li class="active">他人评优奖励申请</li>
 <% end %>
 
 <div class="page-content">
   <div class="page-header">
     <h1>
-      评优奖励申请 管理
-      <small>
-        <i class="icon-double-angle-right"></i>
-        <%= link_to '申请评优奖励', new_student_reward_application_path %>
-      </small>
+      他人评优奖励申请
     </h1>
   </div><!-- /.page-header -->
 
   <div class="row">
     <div class="col-xs-12">
-
     <table class="table">
       <thead>
         <tr>
-          <th>姓名</th>
-          <th>性别</th>
           <th>申请奖励</th>
           <th>状态</th>
           <th>联系方式</th>
           <th>学院</th>
           <th>申请说明</th>
           <th>获得荣誉</th>
-          <th>投票数</th>
           <th></th>
         </tr>
       </thead>
 
       <tbody>
         <% @reward_applications.each do |reward_application| %>
-          <% person_info = reward_application.user.person_info %>
           <tr>
-            <td><%= person_info.name %></td>
-            <td><%= person_info.gender.name %></td>
             <td><%= reward_application.application.try(:name) %></td>
             <td><%= reward_application.state %></td>
             <td><%= reward_application.phone %></td>
             <td><%= reward_application.xueyuan.try(:name) %></td>
             <td><%= reward_application.content %></td>
             <td><%= reward_application.rongyu %></td>
-            <td><%= reward_application.users.count %></td>
             <td>
-            <%= link_to '浏览', xuegongchu_reward_application_path(reward_application) %>
-            <%= link_to '删除', xuegongchu_reward_application_path(reward_application), method: :delete, data: { confirm: '确认删除您正申请的奖励吗?' } %>
-            <% reward_application.state_events.each do |event| %>
-              <%= link_to RewardApplication.get_event_text_by(event), change_xuegongchu_reward_application_path(reward_application, shijian: event) %>
-            <% end %>
-
+              <% if current_user.toupiao?(reward_application) %>
+                已投票
+              <% else %>
+                <%= link_to '投票', "javascript:void(0);", class: "toupiao", value: reward_application.id %>
+              <% end %>
             </td>
           </tr>
         <% end %>
@@ -72,7 +59,17 @@
 <% content_for :script do %>
   <script>
     $(function(){
-      $("#xuegongchu_reward_application").addClass("active")
+      $("#other_student_reward_application").addClass("active")
+
+      $(document).on("click", ".toupiao", function(){
+        this_ele = $(this)
+        id = this_ele.attr("value")
+        $.post("/student/reward_applications/"+id+"/toupiao", {}, function(data){
+          if(data["status"] == true){
+            this_ele.replaceWith("已投票")
+          }
+        })
+      })
     })
   </script>
 <% end %>

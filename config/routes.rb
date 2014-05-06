@@ -25,6 +25,10 @@ StudentManage::Application.routes.draw do
     resources :reward_applications do
       member do
         get :change
+        post :toupiao
+      end
+      collection do
+        get :other
       end
     end
     resources :person_infos, except: [:index, :destroy]

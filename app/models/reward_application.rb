@@ -6,9 +6,11 @@ class RewardApplication < ActiveRecord::Base
   belongs_to :application, class_name: :Application
   belongs_to :xueyuan, class_name: :Xueyuan
 
+  has_many :user_reward_applications, dependent: :destroy
+  has_many :users, through: :user_reward_applications
+
   validates_presence_of :application_id, :phone, :xueyuan_id, :content, :rongyu, :user_id, :state
   validate :verify_state
-  # , :verify_event
 
   state_machine initial: :weishangbao do
     event :shangbao do

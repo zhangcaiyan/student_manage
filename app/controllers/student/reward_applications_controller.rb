@@ -58,6 +58,16 @@ class Student::RewardApplicationsController < Student::BaseController
     redirect_to student_reward_applications_url
   end
 
+  def other
+    @reward_applications = RewardApplication.where(state: ["已审批"]).page(params[:page]).per_page(10).order("created_at DESC")
+  end
+
+  def toupiao
+    @reward_application = RewardApplication.find(params[:id])
+    current_user.toupiao(@reward_application)
+    render json: {status: true}.to_json
+  end
+
   private
 
     def verify_edit_reward_application

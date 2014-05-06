@@ -55,6 +55,36 @@
     </div>
   </div>
 
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>学年</th>
+          <th>学期</th>
+          <th>科目</th>
+          <th>成绩</th>
+          <th>平均成绩</th>
+          <th>操行</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @student_scores.each do |student_score| %>
+          <tr>
+            <td><%= student_score.xuenian.name %></td>
+            <td><%= student_score.xueqi.try(:name) %></td>
+            <td><%= student_score.subject.try(:name) %></td>
+            <td><%= student_score.score.name %></td>
+            <td><%= student_score.pingjun_score %></td>
+            <td><%= student_score.caoxing %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= will_paginate @student_scores %>
+  </div>
+
 </div>
 
 
