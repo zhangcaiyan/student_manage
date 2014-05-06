@@ -35,6 +35,10 @@
         <dd><%= @student_score.subject.try(:name) %></dd>
         <dt>成绩</dt>
         <dd><%= @student_score.score.try(:name) %></dd>
+        <dt>平均成绩</dt>
+        <dd><%= @student_score.pingjun_score %></dd>
+        <dt>操行</dt>
+        <dd><%= @student_score.caoxing %></dd>
       </dl>
     </div>
   </div>

@@ -69,6 +69,6 @@ class Student::ScoresController < Student::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_score_params
-      params.require(:score).permit(:category_id, :xueqi_id, :subject_id, :score_id, :user_id)
+      params.require(:score).permit(:category_id, :xueqi_id, :subject_id, :score_id, :user_id, :pingjun_score, :caoxing, :xuenian_id)
     end
 end

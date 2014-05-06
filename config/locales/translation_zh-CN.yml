@@ -47,6 +47,8 @@ zh-CN:
         xueqi_id: 学期
         subject_id: 科目
         score_id: 成绩
+        pingjun_score: 平均成绩
+        caoxing: 操行
         user_id: 所属学生
 
       person_info:
