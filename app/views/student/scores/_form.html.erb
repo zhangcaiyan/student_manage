@@ -1,8 +1,9 @@
 <%= simple_form_for([:student, @student_score], wrapper: "default-form", html: {role: "form"}) do |f| %>
 
   <div class="form-inputs">
-    <%= f.input :category_id, collection: Dict::ScoreCategory.all, prompt: "请选择", label_html: {class: "col-sm-2"} %>
-    <%= f.input :xueqi_id, collection: Dict::Xueqi.all, prompt: "请选择", wrapper_html: {id: "wrapper_score_xueqi_id", style: @student_score.xueqi? ? "display: inline;" : "display: none;"}, label_html: {class: "col-sm-2"} %>
+    <%#= f.input :category_id, collection: Dict::ScoreCategory.all, prompt: "请选择", label_html: {class: "col-sm-2"} %>
+    <%= f.input :xuenian_id, collection: Dict::Xuenian.all, prompt: "请选择", label_html: {class: "col-sm-2"} %>
+    <%= f.input :xueqi_id, collection: Dict::Xueqi.all, prompt: "请选择", label_html: {class: "col-sm-2"} %>
     <%= f.input :subject_id, collection: Dict::Subject.all, prompt: "请选择", label_html: {class: "col-sm-2"} %>
     <%= f.input :score_id, collection: Dict::Score.all, prompt: "请选择", label_html: {class: "col-sm-2"} %>
   </div>
@@ -17,10 +18,7 @@
 <% content_for :script do %>
   <script>
     $(function(){
-      $("#score_category_id").on("change", function(){
-        category_id = $(this).val()
-        $("#wrapper_score_xueqi_id").toggle(category_id == "2")
-      })
+
     })
   </script>
 <% end %>

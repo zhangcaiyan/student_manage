@@ -10,16 +10,11 @@ class Score < ActiveRecord::Base
 
   before_validation :setup_xueqi_id
 
-  validates_presence_of :user_id, :category_id, :subject_id, :score_id
+  validates_presence_of :user_id, :subject_id, :score_id, :xuenian_id, :xueqi_id
   validate :verify_xueqi_id
 
-  def xueqi?
-    category_id == 2
-  end
+  default_value_for :xuenian_id, 4
 
-  def niandu?
-    category_id == 1
-  end
 
   protected
 

@@ -39,11 +39,22 @@ module Dict
     ]
   end
 
+  class Xuenian < Dict::Base
+
+    self.data = [
+      {:id => 1, name: "2010-2011"},
+      {:id => 2, name: "2011-2012"},
+      {:id => 3, name: "2012-2013"},
+      {:id => 4, name: "2013-2014"}
+    ]
+
+  end
+
   class Xueqi < Dict::Base
 
     self.data = [
-      {:id => 1, name: "春季", score_category_id: 1},
-      {:id => 2, name: "秋季", score_category_id: 1}
+      {:id => 1, name: "第一学期", score_category_id: 1},
+      {:id => 2, name: "第二学期", score_category_id: 1}
     ]
 
     belongs_to :xueqi, class_name: "Dict::ScoreCategory"
