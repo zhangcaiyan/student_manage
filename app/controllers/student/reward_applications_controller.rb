@@ -65,7 +65,7 @@ class Student::RewardApplicationsController < Student::BaseController
   def toupiao
     @reward_application = RewardApplication.find(params[:id])
     current_user.toupiao(@reward_application)
-    render json: {status: true}.to_json
+    render json: {status: true, application_id: @reward_application.application_id}.to_json
   end
 
   private

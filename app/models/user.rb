@@ -26,4 +26,8 @@ class User < ActiveRecord::Base
   def toupiao(reward_application)
     toupiao_reward_applications << reward_application
   end
+
+  def can_toupiao?(reward_application)
+    !toupiao_reward_applications.pluck(:application_id).include?(reward_application.application_id)
+  end
 end

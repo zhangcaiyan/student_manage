@@ -18,6 +18,7 @@
     <table class="table">
       <thead>
         <tr>
+          <th>申请人</th>
           <th>申请奖励</th>
           <th>状态</th>
           <th>联系方式</th>
@@ -31,6 +32,7 @@
       <tbody>
         <% @reward_applications.each do |reward_application| %>
           <tr>
+            <td><%= reward_application.user.person_info.try(:name) %></td>
             <td><%= reward_application.application.try(:name) %></td>
             <td><%= reward_application.state %></td>
             <td><%= reward_application.phone %></td>
@@ -41,7 +43,9 @@
               <% if current_user.toupiao?(reward_application) %>
                 已投票
               <% else %>
-                <%= link_to '投票', "javascript:void(0);", class: "toupiao", value: reward_application.id %>
+                <% if current_user.can_toupiao?(reward_application) %>
+                <%= link_to '投票', "javascript:void(0);", class: "toupiao", value: reward_application.id, application_id: reward_application.application_id %>
+                <% end %>
               <% end %>
             </td>
           </tr>
@@ -64,9 +68,11 @@
       $(document).on("click", ".toupiao", function(){
         this_ele = $(this)
         id = this_ele.attr("value")
+        application_id = this_ele.attr("application_id")
         $.post("/student/reward_applications/"+id+"/toupiao", {}, function(data){
           if(data["status"] == true){
             this_ele.replaceWith("已投票")
+            $("a.toupiao[application_id='"+application_id+"']").hide()
           }
         })
       })
