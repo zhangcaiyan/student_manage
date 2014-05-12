@@ -51,7 +51,6 @@
             <td><%= reward_application.users.count %></td>
             <td>
             <%= link_to '浏览', xuegongchu_reward_application_path(reward_application) %>
-            <%= link_to '删除', xuegongchu_reward_application_path(reward_application), method: :delete, data: { confirm: '确认删除您正申请的奖励吗?' } %>
             <% reward_application.state_events.each do |event| %>
               <%= link_to RewardApplication.get_event_text_by(event), change_xuegongchu_reward_application_path(reward_application, shijian: event) %>
             <% end %>
