@@ -32,6 +32,7 @@
           <th>申请说明</th>
           <th>获得荣誉</th>
           <th>投票数</th>
+          <th>年度</th>
           <th></th>
         </tr>
       </thead>
@@ -49,6 +50,7 @@
             <td><%= reward_application.content %></td>
             <td><%= reward_application.rongyu %></td>
             <td><%= reward_application.users.count %></td>
+            <td><%= reward_application.created_at.to_date %></td>
             <td>
             <%= link_to '浏览', xuegongchu_reward_application_path(reward_application) %>
             <% reward_application.state_events.each do |event| %>

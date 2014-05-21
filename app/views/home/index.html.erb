@@ -16,8 +16,8 @@
            <th>申请状态</th>
            <th>申请奖励</th>
            <th>学院</th>
-           <th>申请说明</th>
            <th>获得荣誉</th>
+           <th>年度</th>
          </tr>
        </thead>
 
@@ -28,8 +28,8 @@
              <td><%= reward_application.state %></td>
              <td><%= reward_application.application.try(:name) %></td>
              <td><%= reward_application.xueyuan.try(:name) %></td>
-             <td><%= reward_application.content %></td>
              <td><%= reward_application.rongyu %></td>
+             <td><%= reward_application.created_at.to_date %></td>
            </tr>
          <% end %>
        </tbody>
