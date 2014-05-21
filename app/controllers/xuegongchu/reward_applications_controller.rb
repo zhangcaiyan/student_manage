@@ -1,6 +1,7 @@
 class Xuegongchu::RewardApplicationsController < Xuegongchu::BaseController
 
   def index
+    params[:search].merge!(created_at_gteq: params[:search][:created_at_gteq]+"-01-01") if params[:search].try(:[], :created_at_gteq).present?
     @search = RewardApplication.where("state != ?", "未上报").search(params[:search])
     @reward_applications = @search.result.page(params[:page]).per_page(30)
   end
