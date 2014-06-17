@@ -40,7 +40,7 @@ end
 end
 
 
-["奖学金", "大学生标兵", "优秀大学生"].each do |name|
+["奖学金", "大学生标兵", "学生"].each do |name|
   Application.find_or_create_by(name: name)
 end
 

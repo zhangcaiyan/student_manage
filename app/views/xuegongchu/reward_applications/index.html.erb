@@ -21,6 +21,7 @@
     <div class="col-xs-12">
       <%= form_tag xuegongchu_reward_applications_path, method: :get, class: "form-inline" do %>
         <%= select_tag "search[created_at_gteq]", options_for_select(["2014", "2015"], params[:search].try(:[], :created_at_gteq).to_s.try(:match, /\d+/)), prompt: "选择年度" %>
+        <%= select_tag "search[state_eq]", options_for_select([["已上报", "已上报"], ["已审批", "已审批"], ["已拒绝", "已拒绝"], ["已通过", "已通过"]], params[:search].try(:[], :state_eq)), prompt: "选择状态" %>
         <%= select_tag "search[xueyuan_id_eq]", options_for_select(Xueyuan.pluck(:name, :id), params[:search].try(:[], :xueyuan_id_eq)), prompt: "选择学院" %>
         <%= submit_tag "搜索", class: "btn" %>
       <% end %>
